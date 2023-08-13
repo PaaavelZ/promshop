@@ -60,8 +60,9 @@ coverage.xml
 *.log
 local_settings.py
 db.sqlite3
-ps_db.sqlite3
 db.sqlite3-journal
+ps_db.sqlite3
+ps_db.sqlite3-journal
 
 # Flask stuff:
 instance/
@@ -104,19 +105,13 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+.env
+.env*
 .venv
+env/
 venv/
 ENV/
 env.bak/
-venv.bak/
-
-.hat
-.hat*
-.venv
-hat/
-venv/
-HAT/
-hat.bak/
 venv.bak/
 
 # Spyder project settings
@@ -142,8 +137,3 @@ dmypy.json
 # Database dumps
 .sql
 /app/java_school_crm/auth/credentials.json
-
-.DS_store
-.swp
-
-static_data
