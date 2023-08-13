@@ -1,0 +1,12 @@
+{% load static %}
+
+<form enctype="multipart/form-data" method="post" action="{% url 'main:feedback' %}">
+    {% csrf_token %}
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
