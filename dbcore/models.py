@@ -73,19 +73,34 @@ class Offer(models.Model):
         verbose_name_plural = 'Предложения'
 
 
-class MainInfo(models.Model):
+class FullInfo(models.Model):
     name = models.CharField(max_length=100, 
                             blank=False, 
                             null=False,
                             verbose_name=_('Заголовок'),)
     lang = models.ForeignKey('Language',
-                             related_name='maininfos',
+                             related_name='fullinfos',
                              on_delete=models.SET_NULL,
                              null=True,
                              verbose_name=_('Язык'),)
     class Meta:
         verbose_name = 'Информация'
         verbose_name_plural = 'Информации'
+
+        
+class MainInfo(models.Model):
+    name = models.CharField(max_length=100, 
+                            blank=False, 
+                            null=False,
+                            verbose_name=_('Заголовок'),)
+    full_info = models.ForeignKey('FullInfo',
+                             related_name='maininfos',
+                             on_delete=models.SET_NULL,
+                             null=True,
+                             verbose_name=_('Главный текст'),)
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
 
 
 class Info(models.Model):
