@@ -6,10 +6,7 @@ from main.form import MessagesForm
 
 class MainPage(View):
     def get(self, request, *args, **kwargs):
-        context = {
-            'form': MessagesForm(),
-        }
-        return render(request, 'test/test.html', context)
+        return render(request, 'main.html')
     
 
 class Test(View):
