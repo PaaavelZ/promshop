@@ -3,48 +3,262 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Oswald:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+
     <title>Tізбек Туралы</title>
 </head>
+
 <body>
     <div class="header fixed-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 header-logo"> <a href="#">КОНТУР ПРО</a></div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 header-logo"> <a href="#" class="txt_orange">КОНТУР ПРО</a></div>
+                <div class="col-lg-6 txt_white header-menu">
                     <div class="col-lg-3">
-                        <a href=""></a>
+                        <a href="">О НАС</a>
                     </div>
                     <div class="col-lg-3">
-                        <a href=""></a>
+                        <a href="">КОНТАКТЫ</a>
                     </div>
-                    <div class="col-lg-3">
-                        <a href=""></a>
+                    <div class="col-lg-5">
+                        <a href="">ОСТАВИТЬ ЗАЯВКУ</a>
                     </div>
-                    <div class="col-lg-3">
-                        <a href=""></a>
+                    <div class="col-lg-1">
+                        <a href="">RU</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="main_block">
-        <div class="container">
-            <div class="row">
-
+    <main>
+        <div class="hellow_block">
+            <div class="hellow_block-tag txt_white">
+                <p><span class="txt_orange">Превосходство</span> в измерениях</p>
+            </div>
+            <div class="hellow_block-description txt_white">
+                <p>Надежное оборудование из Европы для энергетики, нефтегазовой отрасли и водно-коммунального хозяйства
+                </p>
             </div>
         </div>
-    </div>
-    <div class="footer"></div>
+
+        <div class="container">
+
+            <section>
+                <div class="row slider-block">
+                    <div class="col-lg-12 slider-heading">
+                        <p><span class="txt_orange">МЫ</span> Предлагаем</p>
+                    </div>
+                    <div class="slider slider-nav col-lg-6">
+                        <div class="slider-nav-block">
+                            <p>Продажа</p>
+                        </div>
+                        <div class="slider-nav-block">
+                            <p>Установка</p>
+                        </div>
+                        <div class="slider-nav-block">
+                            <p>Репорация</p>
+                        </div>
+                        <div class="slider-nav-block">
+                            <p>Сегрегация</p>
+                        </div>
+                    </div>
+                    <div class="slider slider-for col-lg-6">
+                        <div class="slider-sl txt_white">
+                            Широкий ассортимент высококачественных расходомеров, предназначенных для измерения расхода
+                            жидкостей, газов и теплоносителя.
+                        </div>
+                        <div class="slider-sl">
+                            Широкий ассортимент высококачественных расходомеров, предназначенных для измерения расхода
+                            жидкостей, газов и теплоносителя.
+                        </div>
+                        <div class="slider-sl">
+                            Широкий ассортимент высококачественных расходомеров, предназначенных для измерения расхода
+                            жидкостей, газов и теплоносителя.
+                        </div>
+                        <div class="slider-sl">
+                            Широкий ассортимент высококачественных расходомеров, предназначенных для измерения расхода
+                            жидкостей, газов и теплоносителя.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section>
+            <div class="message">
+                <div class="message-arrow">
+                    <div class="circle"></div>
+                </div>
+                <div class="message-block txt_white"> <a href="">ОСТАВИТЬ ЗАЯВКУ</a></div>
+                <div class="message-arrow ">
+                    <div class="circle circle_rewerce"></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 text-block-heading">
+                        <p>РАЗРАБАТЫВАЕМ ИНДИВИДУАЛЬНЫЕ, В ТОМ ЧИСЛЕ <sapn class="txt_orange">НЕСТАНДАРТНЫЕ</sapn>
+                            ТЕХНИЧЕСКИЕ РЕШЕНИЯ</p>
+                    </div>
+                    <div class="col-lg-12 text-block-subtitle">
+                        <div class="col-lg-4">
+                            <p class="text-block-subtitle_bordered">ДЛЯ ПРЕДПРИЯТИЙ</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 text-block-body">
+                        <div class="col-lg-9">
+                            <p class="text-block-body-txt">В СФЕРЕ ЭНЕРГЕТИКИ НЕФТЕГАЗОВОЙ ОТРАСЛИ
+                                ВОДНО-КОММУНАЛЬНОГО ХОЗЯЙСТВА</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-block-subtitle">
+                        <div class="col-lg-4">
+                            <p class="text-block-subtitle_bordered">ДЛЯ ИЗМЕРЕНИЯ</p>
+                        </div>
+                    </div>
+                    <div class="description-slider col-lg-12">
+                        <div class="slider-description-nav col-lg-7">
+                            <a href="#" data-slide="1" class="">ГАЗА</a>
+                            <a href="#" data-slide="2" class="">ЖИДКОСТЕЙ</a>
+                            <a href="#" data-slide="3" class="">ТЕПЛОНОСИТЕЛЕЙ</a>
+                        </div>
+                        <div class="slider-description-for col-lg-12">
+                            <div class="">
+                                <div class="slider-description-block">
+                                    <div class="col-lg-3 slider-description-column">
+                                        <div class="column-heading">НАЗВАНИЕ</div>
+                                        <div class="column-picture"></div>
+                                        <div class="column-description">небольшое описание</div>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-3 slider-description-column">
+                                        <div class="column-heading">НАЗВАНИЕ</div>
+                                        <div class="column-picture"></div>
+                                        <div class="column-description">небольшое описание</div>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-3 slider-description-column">
+                                        <div class="column-heading">НАЗВАНИЕ</div>
+                                        <div class="column-picture"></div>
+                                        <div class="column-description">небольшое описание</div>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-3 slider-description-column">
+                                        <div class="column-heading">НАЗВАНИЕ</div>
+                                        <div class="column-picture"></div>
+                                        <div class="column-description">небольшое описание</div>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-3 slider-description-column">
+                                        <div class="column-heading">НАЗВАНИЕ</div>
+                                        <div class="column-picture"></div>
+                                        <div class="column-description">небольшое описание</div>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-3 slider-description-column">
+                                        <div class="column-heading">НАЗВАНИЕ</div>
+                                        <div class="column-picture"></div>
+                                        <div class="column-description">небольшое описание</div>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>2</h3>
+                            </div>
+                            <div>
+                                <h3>3</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="form-header">
+                        <p>ГОТОВЫ СОТРУДНИЧАТЬ ?</p>
+                    </div>
+                    <div class="form">
+                        <form enctype="multipart/form-data" method="post" action="/feedback/" class="form-body">
+                            <div class="form-block">
+                                <p class="txt_white form-title">ОСТАВЛЯЙТЕ ЗАЯВКУ И МЕНЕДЖЕР С ВАМИ СВЯЖЕТСЯ </p>
+                                <div class="form-input">
+                                    <div class="form-required">
+                                        <input type="text" name="fio" class="input-field form_fio" placeholder="ФИО"
+                                            required="" id="id_fio">
+                                        <input type="tel" name="tel" class="input-field form_tel" placeholder="ТЕЛЕФОН"
+                                            required="" id="id_fio">
+                                        <input type="email" name="mail" class="input-field form_mail"
+                                            placeholder="EMAIL" required="" id="id_fio">
+                                    </div>
+                                    <div class="form-notrequired">
+                                        <input type="text" name="info" class="input-field form_info"
+                                            placeholder="СООБЩЕНИЕ" required="" id="id_fio">
+                                    </div>
+                                </div>
+                                <input type="submit" name="submit" class="input-field form_send" placeholder="ОТПРАВИТЬ"
+                                    required="" id="id_fio">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 footer-body">
+                        <div class="col-lg-6 footer-right">
+                            <div class="col-lg-3 txt_orange">КОНТУР ПРО</div>
+                            <div class="col-lg-3 txt_white">ДОКУМЕНТЫ</div>
+                            <div class="col-lg-2 txt_white">О НАС</div>
+                            <div class="col-lg-3 txt_white">КОНТАКТЫ</div>
+                        </div>
+                        <div class="col-lg-4 footer-left txt_white">
+                            <div class="col-lg-6">+7 (911) 214-29-27</div>
+                            <div class="col-lg-6">contourprokz@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
     <script src="{% static 'js/main.js' %}"> </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
 </body>
+
 </html>
