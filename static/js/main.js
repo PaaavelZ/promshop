@@ -1,14 +1,22 @@
+/*Navigation drop*/
+$('ul.nav li.dropdown').hover(function() {
+  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+}, function() {
+  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+});
+
+
+
+/*Slider first*/
 $('.slider-for').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
   asNavFor: '.slider-nav',
-  vertical: true,
   infinite: false,
 });
 
 $('.slider-nav').slick({
-  initialSlide: 0,
   centerMode: true,
   slidesToShow: 4,
   asNavFor: '.slider-for',
@@ -19,7 +27,7 @@ $('.slider-nav').slick({
 });
 
 
-
+/*Slider second*/
 $('.slider-description-for').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
