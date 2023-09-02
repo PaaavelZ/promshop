@@ -1,0 +1,18 @@
+name: Restart CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+    strategy:
+      max-parallel: 4
+
+    steps:
+    - name: Restarting server
+      run: |
+        echo {{secrets.ROOT_PASS}} | su - root
+        /root/promshop/script.sh
