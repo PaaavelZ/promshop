@@ -5,13 +5,15 @@ on:
     branches: [ "main" ]
 
 jobs:
+
   build:
-
-    runs-on: self-hosted
-    strategy:
-      max-parallel: 4
-
-    steps:
-    - name: Restarting server
-      run: |
-        echo {{secrets.NOTROOT_PASS}} | sudo -S /home/notroot/promshop/script.sh
+    name: Build
+    runs-on: ubuntu-latest
+    steps: 
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.NOTROOT_HOST }}
+        username: ${{ secrets.NOTROOT_USERNAME }}
+        password: ${{ secrets.NOTROOT_PASS }}
+        script: sh /home/notroot/promshop/script.sh
