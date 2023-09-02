@@ -14,8 +14,8 @@ WORKDIR /app
 ENV PYTHONUNBUFFERED 1
 EXPOSE 8080
 ARG CACHEBUST=0
-RUN python manage.py collectstatic
-CMD ["python", "-m", "gunicorn", "--preload", "-c", "/app/config/gunicorn.py", "ecommerce.asgi:application", "-k", "uvicorn.workers.UvicornWorker"]
+RUN python manage.py collectstatic --noinput
+CMD ["python", "-m", "gunicorn", "--preload", "-c", "/app/gunicorn.py", "aaps.asgi:application", "-k", "uvicorn.workers.UvicornWorker"]
 
 # nginx
 FROM node:18-alpine as nodejs-builder
