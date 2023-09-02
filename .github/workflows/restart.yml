@@ -16,4 +16,4 @@ jobs:
         host: ${{ secrets.NOTROOT_HOST }}
         username: ${{ secrets.NOTROOT_USERNAME }}
         password: ${{ secrets.NOTROOT_PASS }}
-        script: bash /home/notroot/promshop/script.sh
+        script: sudo bash /home/notroot/promshop/script.sh
