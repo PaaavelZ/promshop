@@ -14,5 +14,4 @@ jobs:
     steps:
     - name: Restarting server
       run: |
-        echo {{secrets.ROOT_PASS}} | su - root
-        /root/promshop/script.sh
+        echo {{secrets.NOTROOT_PASS}} | sudo -S /home/notroot/promshop/script.sh
