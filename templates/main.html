@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-test
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,43 +67,24 @@ test
         </div>
 
         <div class="container">
-
             <section>
                 <div class="row slider-block">
                     <div class="col-lg-12 slider-heading">
-                        <p><span class="txt_orange">МЫ</span> Предлагаем</p>
+                        <p><span class="txt_orange">{{ main_offer.name }}</p>
                     </div>
                     <div class="slider slider-nav col-lg-6">
-                        <div class="slider-nav-block">
-                            <p>Продажа</p>
-                        </div>
-                        <div class="slider-nav-block">
-                            <p>Установка</p>
-                        </div>
-                        <div class="slider-nav-block">
-                            <p>Репорация</p>
-                        </div>
-                        <div class="slider-nav-block">
-                            <p>Сегрегация</p>
-                        </div>
+                        {% for offer in offers%}
+                            <div class="slider-nav-block">
+                                <p>{{offer.name}}</p>
+                            </div>
+                        {% endfor %}
                     </div>
                     <div class="slider slider-for col-lg-6">
+                        {% for offer in offers%}
                         <div class="slider-sl txt_white">
-                            Широкий ассортимент высококачественных расходомеров, предназначенных для измерения расхода
-                            жидкостей, газов и теплоносителя.
+                            {{ offer.text|safe}}
                         </div>
-                        <div class="slider-sl">
-                            Широкий ассортимент высококачественных расходомеров, предназначенных для измерения расхода
-                            жидкостей, газов и теплоносителя.
-                        </div>
-                        <div class="slider-sl">
-                            Широкий ассортимент высококачественных расходомеров, предназначенных для измерения расхода
-                            жидкостей, газов и теплоносителя.
-                        </div>
-                        <div class="slider-sl">
-                            Широкий ассортимент высококачественных расходомеров, предназначенных для измерения расхода
-                            жидкостей, газов и теплоносителя.
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </section>
@@ -125,86 +106,58 @@ test
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 text-block-heading">
-                        <p>РАЗРАБАТЫВАЕМ ИНДИВИДУАЛЬНЫЕ, В ТОМ ЧИСЛЕ <sapn class="txt_orange">НЕСТАНДАРТНЫЕ</sapn>
-                            ТЕХНИЧЕСКИЕ РЕШЕНИЯ</p>
+                        <p>{{ info_title.name }}</p>
                     </div>
-                    <div class="col-lg-12 text-block-subtitle">
-                        <div class="col-lg-4">
-                            <p class="text-block-subtitle_bordered">ДЛЯ ПРЕДПРИЯТИЙ</p>
+                    {% for info in infos_no_slider%}
+                        <div class="col-lg-12 text-block-subtitle">
+                            <div class="col-lg-4">
+                                <p class="text-block-subtitle_bordered">{{ info.name }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-12 text-block-body">
-                        <div class="col-lg-9">
-                            <p class="text-block-body-txt">В СФЕРЕ ЭНЕРГЕТИКИ НЕФТЕГАЗОВОЙ ОТРАСЛИ
-                                ВОДНО-КОММУНАЛЬНОГО ХОЗЯЙСТВА</p>
+                        <div class="col-lg-12 text-block-body">
+                            <div class="col-lg-12 text-block-body-txt">
+                                {% for mini_info in info.infos.all%}
+                                    <p>{{ mini_info.name }}</p> 
+                                {% endfor %}
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
         <section>
             <div class="container">
                 <div class="row">
+                    {% for info in infos_slider%}
                     <div class="col-lg-12 text-block-subtitle">
                         <div class="col-lg-4">
-                            <p class="text-block-subtitle_bordered">ДЛЯ ИЗМЕРЕНИЯ</p>
+                            <p class="text-block-subtitle_bordered">{{ info.name }}</p>
                         </div>
                     </div>
                     <div class="description-slider col-lg-12">
                         <div class="slider-description-nav col-lg-7 .col-md-12">
-                            <a href="#" data-slide="1" class="">ГАЗА</a>
-                            <a href="#" data-slide="2" class="">ЖИДКОСТЕЙ</a>
-                            <a href="#" data-slide="3" class="">ТЕПЛОНОСИТЕЛЕЙ</a>
+                            {% for title_mini_info in info.sliderinfos.all%}
+                                <a href="#" data-slide="{{ forloop.counter }}" class="">{{ title_mini_info.name }}</a>
+                            {% endfor %}
                         </div>
                         <div class="slider-description-for col-lg-12 .col-md-12">
-                            <div class="">
-                                <div class="slider-description-block">
-                                    <div class="col-lg-3 col-md-3 slider-description-column">
-                                        <div class="column-heading">НАЗВАНИЕ</div>
-                                        <div class="column-picture"></div>
-                                        <div class="column-description">небольшое описание</div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-1"></div>
-                                    <div class="col-lg-3 col-md-3 slider-description-column">
-                                        <div class="column-heading">НАЗВАНИЕ</div>
-                                        <div class="column-picture"></div>
-                                        <div class="column-description">небольшое описание</div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-1"></div>
-                                    <div class="col-lg-3 col-md-3 slider-description-column">
-                                        <div class="column-heading">НАЗВАНИЕ</div>
-                                        <div class="column-picture"></div>
-                                        <div class="column-description">небольшое описание</div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-1"></div>
-                                    <div class="col-lg-3 col-md-3 slider-description-column">
-                                        <div class="column-heading">НАЗВАНИЕ</div>
-                                        <div class="column-picture"></div>
-                                        <div class="column-description">небольшое описание</div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-1"></div>
-                                    <div class="col-lg-3 slider-description-column">
-                                        <div class="column-heading">НАЗВАНИЕ</div>
-                                        <div class="column-picture"></div>
-                                        <div class="column-description">небольшое описание</div>
-                                    </div>
-                                    <div class="col-lg-1 col-md-1"></div>
-                                    <div class="col-lg-3 slider-description-column">
-                                        <div class="column-heading">НАЗВАНИЕ</div>
-                                        <div class="column-picture"></div>
-                                        <div class="column-description">небольшое описание</div>
-                                    </div>
-                                    <div class="col-lg-1"></div>
+                            {% for title_mini_info in info.sliderinfos.all%}
+                                <div class="">
+                                    {% for mini_info in title_mini_info.sliderchildinfos.all%}
+                                        <div class="slider-description-block">
+                                            <div class="col-lg-3 col-md-3 slider-description-column">
+                                                <div class="column-heading">{{ mini_info.name }}</div>
+                                                <div class="column-picture"></div>
+                                                <div class="column-description">небольшое описание</div>
+                                            </div>
+                                            <div class="col-lg-1 col-md-1"></div>
+                                        </div>
+                                    {% endfor%}
                                 </div>
-                            </div>
-                            <div>
-                                <h3>2</h3>
-                            </div>
-                            <div>
-                                <h3>3</h3>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
         </section>
         <section>

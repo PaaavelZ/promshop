@@ -2,11 +2,14 @@ from django.shortcuts import render
 from django.views import View
 
 from main.form import MessagesForm
+from main.helpers import GetContext
 
 
 class MainPage(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'main.html')
+        context = GetContext(lang=kwargs.get('lang'))()
+        context['form'] = MessagesForm()
+        return render(request, 'main.html', context)
     
 
 class Test(View):
@@ -15,7 +18,5 @@ class Test(View):
         context = {
             'form': MessagesForm(),
         }
-        if form.is_valid():
-            return render(request, 'test/aaa.html')
-        else:
-            return render(request, 'test/test.html', context)
+
+        
