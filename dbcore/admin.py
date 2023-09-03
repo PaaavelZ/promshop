@@ -1,8 +1,9 @@
 from django.contrib import admin
+from django.contrib.admin.options import StackedInline, TabularInline
 from django.http.request import HttpRequest
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 
-from dbcore.models import (Language, MainPage, MainOffer, Offer, FullInfo, MainInfo, Info, ChildInfo, Feedback)
+from dbcore.models import (Language, MainPage, MainOffer, Offer, FullInfo, MainInfo, Info, SliderMainInfo, SliderInfo, SliderChildInfo, Feedback)
 
 
 class OfferInLine(admin.StackedInline):
@@ -10,20 +11,31 @@ class OfferInLine(admin.StackedInline):
     extra = 1
 
 
-class ChildInfoInLine(NestedStackedInline):
-    model = ChildInfo
+class SliderChildInfoInLine(NestedStackedInline):
+    model = SliderChildInfo
     extra = 1
+
+
+class SliderInfoInLine(NestedStackedInline):
+    model = SliderInfo
+    extra = 1
+    inlines = [SliderChildInfoInLine]
+
+
+# class SliderMainInfoInLine(NestedStackedInline):
+#     model = SliderMainInfo
+#     extra = 0
+#     inlines = [SliderInfoInLine]
 
 
 class InfoInLine(NestedStackedInline):
     model = Info
-    extra = 1
-    inlines = [ChildInfoInLine]
+    extra = 0
 
 
 class MainInfoInLine(NestedStackedInline):
     model = MainInfo
-    extra = 1
+    extra = 0
     inlines = [InfoInLine]
 
 
@@ -45,10 +57,17 @@ class MainOfferAdmin(admin.ModelAdmin):
 
 
 @admin.register(FullInfo)
-class MainInfoAdmin(NestedModelAdmin):
+class FullInfoAdmin(NestedModelAdmin):
     list_display = ('name',)
 
     inlines = [MainInfoInLine]
+
+
+@admin.register(SliderMainInfo)
+class SliderMainInfoAdmin(NestedModelAdmin):
+    list_display = ('name',)
+
+    inlines = [SliderInfoInLine]
 
 
 @admin.register(Feedback)

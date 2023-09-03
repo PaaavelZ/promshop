@@ -5,9 +5,9 @@ from ckeditor.fields import RichTextField
 
 class Language(models.Model):
     LANGUAGE = (
-        ('RU', 'RU'),
-        ('ENG', 'ENG'),
-        ('KZ', 'KZ'),
+        ('ru', 'ru'),
+        ('eng', 'eng'),
+        ('kz', 'kz'),
     )
 
     name = models.CharField(max_length=3,
@@ -108,7 +108,6 @@ class Info(models.Model):
                             blank=False, 
                             null=False,
                             verbose_name=_('Заголовок'),)
-    text = RichTextField(verbose_name='Текст')
     main_info = models.ForeignKey('MainInfo',
                                   related_name='infos',
                                   on_delete=models.SET_NULL,
@@ -120,22 +119,53 @@ class Info(models.Model):
         verbose_name_plural = 'Категории'
 
 
-class ChildInfo(models.Model):
+class SliderMainInfo(models.Model):
     name = models.CharField(max_length=100, 
                             blank=False, 
                             null=False,
                             verbose_name=_('Заголовок'),)
-    img = models.ImageField(verbose_name=_('Фото'))
+    lang = models.ForeignKey('Language',
+                             related_name='sliderfullinfos',
+                             on_delete=models.SET_NULL,
+                             null=True,
+                             verbose_name=_('Язык'),)
+    class Meta:
+        verbose_name = 'Категория (слайдер)'
+        verbose_name_plural = 'Категории (слайдер)'
+
+
+class SliderInfo(models.Model):
+    name = models.CharField(max_length=100, 
+                            blank=False, 
+                            null=False,
+                            verbose_name=_('Заголовок'),)
+    slider_main_info = models.ForeignKey('SliderMainInfo',
+                                  related_name='sliderinfos',
+                                  on_delete=models.SET_NULL,
+                                  null=True,
+                                  verbose_name=_('Слайд'))
+    
+    class Meta:
+        verbose_name = 'Подкатегория (слайлдер)'
+        verbose_name_plural = 'Подкатегория (слайлдер)'
+
+
+class SliderChildInfo(models.Model):
+    name = models.CharField(max_length=100, 
+                            blank=False, 
+                            null=False,
+                            verbose_name=_('Заголовок'),)
+    img = models.FileField(verbose_name='Фото', null=True, blank=True)
     text = RichTextField(verbose_name='Текст')
-    info = models.ForeignKey('Info',
-                             related_name='childinfos',
+    slider_info = models.ForeignKey('SliderInfo',
+                             related_name='sliderchildinfos',
                              on_delete=models.SET_NULL,
                              null=True,
                              verbose_name=_('Слайд'))
     
     class Meta:
-        verbose_name = 'Пример'
-        verbose_name_plural = 'Примеры'
+        verbose_name = 'Пример (слайлдер)'
+        verbose_name_plural = 'Примеры (слайлдер)'
 
 
 class Feedback(models.Model):
