@@ -47,7 +47,6 @@ INSTALLED_APPS = [
 
     'ckeditor',
     'nested_inline',
-    'corsheaders',
 
     'dbcore',
     'main',
@@ -62,7 +61,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'aaps.urls'
