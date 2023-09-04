@@ -241,21 +241,18 @@ class Feedback(models.Model):
     email = models.EmailField(max_length=20, 
                               blank=False, 
                               null=False,
-                              verbose_name=_('Телефон'),)
-    text =RichTextField()
+                              verbose_name=_('Почта'),)
+    text = RichTextField()
 
     class Meta:
         verbose_name = 'Клиентская заявка'
         verbose_name_plural = 'Клиентские заявки'
 
     def __str__(self) -> str:
-        return self.name
+        return self.email
     
 
 class EmailEntry(models.Model):
-    from_email = models.CharField(max_length=255, 
-                                  blank=False, 
-                                  null=False,)
     to_email = models.CharField(max_length=255, 
                                 blank=False, 
                                 null=False,)
