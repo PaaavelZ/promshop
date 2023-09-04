@@ -11,21 +11,9 @@ class OfferInLine(admin.StackedInline):
     extra = 1
 
 
-class SliderChildInfoInLine(NestedStackedInline):
-    model = SliderChildInfo
-    extra = 1
-
-
 class SliderInfoInLine(NestedStackedInline):
     model = SliderInfo
     extra = 1
-    inlines = [SliderChildInfoInLine]
-
-
-# class SliderMainInfoInLine(NestedStackedInline):
-#     model = SliderMainInfo
-#     extra = 0
-#     inlines = [SliderInfoInLine]
 
 
 class InfoInLine(NestedStackedInline):
