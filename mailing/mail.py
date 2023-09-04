@@ -1,41 +1,43 @@
-from django.core.mail import send_mail
+import smtplib, ssl
 
 from dataclasses import dataclass
 from typing import Any
 
-from aaps.settings import RECIPIENTS_EMAIL, DEFAULT_FROM_EMAIL
-from dbcore.models import FeedbackEmailEntry
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+from aaps.settings import RECIPIENTS_EMAIL, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
+from dbcore.models import EmailEntry
 
 
 @dataclass
 class Mail:
-    subject: str
-    text: str
-    email_inst: FeedbackEmailEntry or None
-    
+    entry = None
+    em: str = ''
+
     def __call__(self, *args: Any, **kwds: Any) -> Any:
-        if self._try_to_send():
-            self._create_email_entry()
-            self._mark_as_sent()
+        self._prepare_sms()
+        self._send()
+        # self._mark_as_sent()
 
-        return 
-    
-    def _try_to_send(self) -> bool:
-        try:
-            send_mail('+1 к новым смс', 
-                      'Новое сообщение!',
-                      DEFAULT_FROM_EMAIL, 
-                      RECIPIENTS_EMAIL)
-        except:
-            return False
-        
-        return True
-    
-    def _create_email_entry(self) -> None:
-        self.email_inst = FeedbackEmailEntry.objects.create(
-            feedback=self.feedback
-        )
+    def _prepare_sms(self):
+        e = MIMEMultipart()
+        e['From'] = EMAIL_HOST_USER
+        e['To'] = ', '.join(RECIPIENTS_EMAIL)
+        e['Subject'] = 'Новое сообщение'
+        self.em = e.as_string()
 
-    def _mark_as_sent(self) -> None:
-        self.email_inst.send = True
-        self.email_inst.save()
+    def _send(self):
+        context = ssl.create_default_context()
+
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
+            server.login(
+                EMAIL_HOST_USER, 
+                EMAIL_HOST_PASSWORD,
+            )
+            server.sendmail(EMAIL_HOST_USER, RECIPIENTS_EMAIL, self.em)
+
+    def _mark_as_sent(self):
+       self.entry.mark_as_sent()
+
+    

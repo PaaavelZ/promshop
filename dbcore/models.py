@@ -21,6 +21,9 @@ class Language(models.Model):
         verbose_name = 'Язык'
         verbose_name_plural = 'Языки'
     
+    def __str__(self) -> str:
+        return self.name
+    
 
 class MainPage(models.Model):
     company_name = models.CharField(max_length=50, 
@@ -36,7 +39,10 @@ class MainPage(models.Model):
 
     class Meta:
         verbose_name = 'Главная страница'
-        verbose_name_plural = 'Главные страницы'
+        verbose_name_plural = 'Главная страница'
+
+    def __str__(self) -> str:
+        return self.company_name
 
 
 class MainOffer(models.Model):
@@ -53,6 +59,9 @@ class MainOffer(models.Model):
     class Meta:
         verbose_name = 'Слайд с предложениями'
         verbose_name_plural = 'Слайды с предложениями'
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class Offer(models.Model):
@@ -72,6 +81,9 @@ class Offer(models.Model):
         verbose_name = 'Предложение'
         verbose_name_plural = 'Предложения'
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class FullInfo(models.Model):
     name = models.CharField(max_length=100, 
@@ -87,6 +99,9 @@ class FullInfo(models.Model):
         verbose_name = 'Информация'
         verbose_name_plural = 'Информации'
 
+    def __str__(self) -> str:
+        return self.name
+
         
 class MainInfo(models.Model):
     name = models.CharField(max_length=100, 
@@ -101,6 +116,9 @@ class MainInfo(models.Model):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class Info(models.Model):
@@ -118,6 +136,9 @@ class Info(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
 
+    def __str__(self) -> str:
+        return self.name
+    
 
 class SliderMainInfo(models.Model):
     name = models.CharField(max_length=100, 
@@ -133,6 +154,9 @@ class SliderMainInfo(models.Model):
         verbose_name = 'Категория (слайдер)'
         verbose_name_plural = 'Категории (слайдер)'
 
+    def __str__(self) -> str:
+        return self.name
+    
 
 class SliderInfo(models.Model):
     name = models.CharField(max_length=100, 
@@ -149,6 +173,9 @@ class SliderInfo(models.Model):
         verbose_name = 'Подкатегория (слайлдер)'
         verbose_name_plural = 'Подкатегория (слайлдер)'
 
+    def __str__(self) -> str:
+        return self.name
+        
 
 class SliderChildInfo(models.Model):
     name = models.CharField(max_length=100, 
@@ -166,6 +193,9 @@ class SliderChildInfo(models.Model):
     class Meta:
         verbose_name = 'Пример (слайлдер)'
         verbose_name_plural = 'Примеры (слайлдер)'
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class Feedback(models.Model):
@@ -186,3 +216,24 @@ class Feedback(models.Model):
     class Meta:
         verbose_name = 'Клиентская заявка'
         verbose_name_plural = 'Клиентские заявки'
+
+    def __str__(self) -> str:
+        return self.name
+    
+
+class EmailEntry(models.Model):
+    from_email = models.CharField(max_length=255, 
+                                  blank=False, 
+                                  null=False,)
+    to_email = models.CharField(max_length=255, 
+                                blank=False, 
+                                null=False,)
+    subject = models.CharField(max_length=255, 
+                               blank=False, 
+                               null=False,)
+    text = models.TextField()
+    is_sent = models.BooleanField(default=False)
+
+    def mark_as_sent(self):
+        self.is_sent = True
+        self.save(update_fields=['is_sent'])
