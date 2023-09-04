@@ -163,17 +163,6 @@
                         </div>
                     </div>
                     <div class="description-slider col-lg-12">
-                        <div class="slider-description-nav col-lg-7 .col-md-12">
-                            {% for title_mini_info in info.sliderinfos.all%}
-                                <a href="#" data-slide="{{ forloop.counter }}" class="">{{ title_mini_info.name }}</a>
-                            {% endfor %}
-                        </div>
-                        <div class="slider-description-for col-lg-12 .col-md-12">
-                            {% for title_mini_info in info.sliderinfos.all%}
-                                <div class="">
-                                    {% for mini_info in title_mini_info.sliderchildinfos.all%}
-                                        <div class="slider-description-block">
-                                            <div class="col-lg-3 col-md-3 slider-description-column">
                         <div class="slider-description-nav col-lg-9 col-md-12 col-sm-12 col-12">
                             {% for title_mini_info in info.sliderinfos.all%}
                                 <a href="#" data-slide="{{ forloop.counter }}" class="col-xs-4 col-lg-4 col-md-3 col-sm-3">{{ title_mini_info.name }}</a>
@@ -189,8 +178,9 @@
                                                 <div class="column-picture"></div>
                                                 <div class="column-description">небольшое описание</div>
                                             </div>
-                                            <div class="col-lg-1 col-md-1"></div>
-                                    {% endfor%}
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
+                                            {% endfor%}
+                                        </div>
                                 </div>
                             {% endfor %}
                         </div>
