@@ -70,6 +70,13 @@ class SliderMainInfoAdmin(NestedModelAdmin):
     inlines = [SliderInfoInLine]
 
 
+@admin.register(SliderChildInfo)
+class SliderChildInfoAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    list_filter = ('slider_info',)
+    search_fields = ('slider_info',)
+
+    
 @admin.register(Feedback)
 class OfferAdmin(admin.ModelAdmin):
     list_display = ('fio', 'phone', 'email')
