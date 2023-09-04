@@ -3,7 +3,7 @@ from django.contrib.admin.options import StackedInline, TabularInline
 from django.http.request import HttpRequest
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 
-from dbcore.models import (Language, MainPage, MainOffer, Offer, FullInfo, MainInfo, Info, SliderMainInfo, SliderInfo, SliderChildInfo, Feedback)
+from dbcore.models import (Language, MainPage, MainOffer, Offer, FullInfo, MainInfo, Info, SliderMainInfo, SliderInfo, SliderChildInfo, Feedback, EmailEntry)
 
 
 class OfferInLine(admin.StackedInline):
@@ -80,3 +80,8 @@ class SliderChildInfoAdmin(admin.ModelAdmin):
 @admin.register(Feedback)
 class OfferAdmin(admin.ModelAdmin):
     list_display = ('fio', 'phone', 'email')
+
+
+@admin.register(EmailEntry)
+class EntryMailAdmin(admin.ModelAdmin):
+    list_display = ('to_email',)

@@ -1,4 +1,5 @@
 {% load static %}
+{% csrf_token %}
 
 
 <!DOCTYPE html>
@@ -195,27 +196,24 @@
                         <p>ГОТОВЫ СОТРУДНИЧАТЬ ?</p>
                     </div>
                     <div class="form">
-                        <form enctype="multipart/form-data" method="post" action="/feedback/" class="form-body">
+                        <form enctype="multipart/form-data" method="post" action="feedback/" class="form-body">
+                            {% csrf_token %}
                             <div class="form-block">
                                 <p class="txt_white form-title">ОСТАВЛЯЙТЕ ЗАЯВКУ И МЕНЕДЖЕР С ВАМИ СВЯЖЕТСЯ </p>
                                 <div class="form-input">
                                     <div class="form-required">
-                                        <input type="text" name="fio" class="input-field form_fio" placeholder="ФИО"
-                                            required="" id="id_fio">
-                                        <input type="tel" name="tel" class="input-field form_tel" placeholder="ТЕЛЕФОН"
-                                            required="" id="id_fio">
-                                        <input type="email" name="mail" class="input-field form_mail"
-                                            placeholder="EMAIL" required="" id="id_fio">
+                                            {{ form.fio }}
+                                            {{ form.phone }}
+                                            {{ form.email }} 
                                     </div>
                                     <div class="form-notrequired">
-                                        <input type="text" name="info" class="input-field form_info"
-                                            placeholder="СООБЩЕНИЕ" required="" id="id_fio">
+                                        {{ form.comment }}
                                     </div>
                                 </div>
-                                <input type="submit" name="submit" class="input-field form_send" placeholder="ОТПРАВИТЬ"
+                                <input type="submit" value="Submit" name="submit" class="input-field form_send" placeholder="ОТПРАВИТЬ"
                                     required="" id="id_fio">
                             </div>
-                        </form>
+                        </form> 
                     </div>
                 </div>
             </div>

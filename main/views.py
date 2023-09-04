@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 
 from main.form import MessagesForm
@@ -33,7 +33,8 @@ class Test(View):
             )
             feedback.save()
 
-            Mail()()
-        return render(request, 'main.html')
+            Mail(feedback)()
+
+        return redirect('main:main_page', lang=kwargs.get('lang'))
 
         

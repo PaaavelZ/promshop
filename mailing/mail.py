@@ -7,12 +7,12 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 from aaps.settings import RECIPIENTS_EMAIL, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
-from dbcore.models import EmailEntry
+from dbcore.models import Feedback, EmailEntry
 
 
 @dataclass
 class Mail:
-    entry = None
+    feedback: Feedback
     em: str = ''
 
     def __call__(self, *args: Any, **kwds: Any) -> Any:
@@ -25,6 +25,9 @@ class Mail:
         e['From'] = EMAIL_HOST_USER
         e['To'] = ', '.join(RECIPIENTS_EMAIL)
         e['Subject'] = 'Новое сообщение'
+
+        text = f'ФИО: {self.feedback.fio} \nТЕЛЕФОН: {self.feedback.phone} \nПОЧТА: {self.feedback.email} \nСООБЩЕНИЕ: {self.feedback.text}'
+        e.attach(MIMEText(text, 'plain'))
         self.em = e.as_string()
 
     def _send(self):
@@ -38,6 +41,10 @@ class Mail:
             server.sendmail(EMAIL_HOST_USER, RECIPIENTS_EMAIL, self.em)
 
     def _mark_as_sent(self):
-       self.entry.mark_as_sent()
+       EmailEntry.objects.create(
+           to_email=self.to,
+           subject = 'Новая заявка',
+           text = ''
+       )
 
     
