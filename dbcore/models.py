@@ -268,3 +268,10 @@ class EmailEntry(models.Model):
     def mark_as_sent(self):
         self.is_sent = True
         self.save(update_fields=['is_sent'])
+
+    class Meta:
+        verbose_name = 'Имейлы'
+        verbose_name_plural = 'Имейлы'
+
+    def __str__(self) -> str:
+        return self.to_email
