@@ -133,8 +133,8 @@ class Info(models.Model):
                                   verbose_name=_('Слайд'))
     
     class Meta:
-        verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'
+        verbose_name = 'Подкатегория'
+        verbose_name_plural = 'Подкатегория'
 
     def __str__(self) -> str:
         return self.name
@@ -206,6 +206,9 @@ class SliderInfo(models.Model):
     class Meta:
         verbose_name = 'Подкатегория (слайлдер)'
         verbose_name_plural = 'Подкатегория (слайлдер)'
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class SliderChildInfo(models.Model):
