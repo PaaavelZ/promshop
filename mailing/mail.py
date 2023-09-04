@@ -14,11 +14,12 @@ from dbcore.models import Feedback, EmailEntry
 class Mail:
     feedback: Feedback
     em: str = ''
+    text: str = ''
 
     def __call__(self, *args: Any, **kwds: Any) -> Any:
         self._prepare_sms()
         self._send()
-        # self._mark_as_sent()
+        self._mark_as_sent()
 
     def _prepare_sms(self):
         e = MIMEMultipart()
@@ -26,8 +27,8 @@ class Mail:
         e['To'] = ', '.join(RECIPIENTS_EMAIL)
         e['Subject'] = 'Новое сообщение'
 
-        text = f'ФИО: {self.feedback.fio} \nТЕЛЕФОН: {self.feedback.phone} \nПОЧТА: {self.feedback.email} \nСООБЩЕНИЕ: {self.feedback.text}'
-        e.attach(MIMEText(text, 'plain'))
+        self.text = f'ФИО: {self.feedback.fio} \nТЕЛЕФОН: {self.feedback.phone} \nПОЧТА: {self.feedback.email} \nСООБЩЕНИЕ: {self.feedback.text}'
+        e.attach(MIMEText(self.text, 'plain'))
         self.em = e.as_string()
 
     def _send(self):
@@ -42,9 +43,10 @@ class Mail:
 
     def _mark_as_sent(self):
        EmailEntry.objects.create(
-           to_email=self.to,
+           to_email=self.feedback.email,
            subject = 'Новая заявка',
-           text = ''
+           text = self.text,
+           is_sent=True
        )
 
     
