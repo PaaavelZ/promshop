@@ -21,26 +21,26 @@
 
     <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
 
-    <title>Tізбек Туралы</title>
+    <title>Contour-Pro</title>
 </head>
 
 <body>
     <div class="header fixed-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-4 header-logo"> <a href="#" class="txt_orange">КОНТУР ПРО</a></div>
-                <div class="col-lg-6 col-md-8 txt_white header-menu">
+                <div class="col-lg-6 col-md-4 col-sm-3 col-7 header-logo"> <a href="#main" class="txt_orange">КОНТУР ПРО</a></div>
+                <div class="col-lg-6 col-md-8 col-sm-9 txt_white header-menu">
                     <div class="col-lg-3">
-                        <a href="">О НАС</a>
+                        <a href="#about">О НАС</a>
                     </div>
                     <div class="col-lg-3">
                         <a href="">КОНТАКТЫ</a>
                     </div>
                     <div class="col-lg-5">
-                        <a href="">ОСТАВИТЬ ЗАЯВКУ</a>
+                        <a href="#contact">ОСТАВИТЬ ЗАЯВКУ</a>
                     </div>
-                    <div class="col-lg-1">
-                        <ul class="nav navbar-nav">
+                    <div class="col-lg-1 header-language">
+                        <!--<ul class="nav navbar-nav">
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">RU<b class="caret"></b></a>
                               <ul class="dropdown-menu">
@@ -49,14 +49,40 @@
                                 <li><a href="#">EN</a></li>
                               </ul>
                             </li>
-                          </ul>
+                          </ul>-->
+                        <a href="#">RU </a>
+                        <a href="#">KZ </a>
+                        <a href="#">EN </a>
+                    </div>
+                </div>
+                <div class='menu col-5'>
+                    <div class="menu-box">
+                        <div class='ikona' onclick='menu(this)'>
+                            <div class='d'></div>
+                            <div class='d'></div>
+                            <div class='d'></div>
+
+                            <div class='overlay'>
+                                <div class='list'>
+                                    <a href="#about">О НАС</a>
+                                    <a href='#'>КОНТАКТЫ</a>
+                                    <a href='#contact'>ОСТАВИТЬ ЗАЯВКУ</a>
+                                    <div class="menu-language">
+                                        <a href="#">RU </a>
+                                        <a href="#">KZ </a>
+                                        <a href="#">EN </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <main>
-        <div class="hellow_block">
+        <div class="hellow_block" id="main">
             <div class="hellow_block-tag txt_white">
                 <p><span class="txt_orange">Превосходство</span> в измерениях</p>
             </div>
@@ -68,7 +94,7 @@
 
         <div class="container">
             <section>
-                <div class="row slider-block">
+                <div class="row slider-block" id="about">
                     <div class="col-lg-12 slider-heading">
                         <p><span class="txt_orange">{{ main_offer.name }}</p>
                     </div>
@@ -92,11 +118,13 @@
 
         <section>
             <div class="message">
-                <div class="message-arrow col-lg-4 col-md-3">
+                <div class="message-arrow col-lg-4 col-md-3 col-sm-2 col-1">
                     <div class="circle"></div>
                 </div>
-                <div class="message-block txt_white col-lg-4 col-md-6"> <a href="">ОСТАВИТЬ ЗАЯВКУ</a></div>
-                <div class="message-arrow col-lg-4 col-md-3">
+                <div class="message-block txt_white col-lg-4 col-md-6 col-sm-8 col-10"> <a href="#contact">ОСТАВИТЬ
+                        ЗАЯВКУ</a>
+                </div>
+                <div class="message-arrow col-lg-4 col-md-3 col-sm-2 col-1">
                     <div class="circle circle_rewerce"></div>
                 </div>
             </div>
@@ -135,24 +163,24 @@
                         </div>
                     </div>
                     <div class="description-slider col-lg-12">
-                        <div class="slider-description-nav col-lg-7 .col-md-12">
+                        <div class="slider-description-nav col-lg-9 col-md-12 col-sm-12 col-12">
                             {% for title_mini_info in info.sliderinfos.all%}
-                                <a href="#" data-slide="{{ forloop.counter }}" class="">{{ title_mini_info.name }}</a>
+                                <a href="#" data-slide="{{ forloop.counter }}" class="col-xs-4 col-lg-4 col-md-3 col-sm-3">{{ title_mini_info.name }}</a>
                             {% endfor %}
                         </div>
-                        <div class="slider-description-for col-lg-12 .col-md-12">
+                        <div class="slider-description-for col-lg-12">
                             {% for title_mini_info in info.sliderinfos.all%}
                                 <div class="">
-                                    {% for mini_info in title_mini_info.sliderchildinfos.all%}
                                         <div class="slider-description-block">
-                                            <div class="col-lg-3 col-md-3 slider-description-column">
+                                            {% for mini_info in title_mini_info.sliderchildinfos.all%}
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-5 slider-description-column">
                                                 <div class="column-heading">{{ mini_info.name }}</div>
                                                 <div class="column-picture"></div>
                                                 <div class="column-description">небольшое описание</div>
                                             </div>
-                                            <div class="col-lg-1 col-md-1"></div>
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
+                                            {% endfor%}
                                         </div>
-                                    {% endfor%}
                                 </div>
                             {% endfor %}
                         </div>
@@ -197,16 +225,16 @@
         <div class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 footer-body">
-                        <div class="col-lg-6 col-md-6 footer-right">
-                            <div class="col-lg-3 col-md-3 txt_orange">КОНТУР ПРО</div>
-                            <div class="col-lg-3 col-md-3 txt_white">ДОКУМЕНТЫ</div>
-                            <div class="col-lg-2 col-md-2 txt_white">О НАС</div>
-                            <div class="col-lg-3 col-md-3 txt_white">КОНТАКТЫ</div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 footer-body">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 footer-right">
+                            <a href= "#main" class="col-lg-3 col-md-3  col-sm-3 txt_orange">КОНТУР ПРО</a>
+                            <a href= "" class="col-lg-3 col-md-3  col-sm-3 txt_white">ДОКУМЕНТЫ</a>
+                            <a href= "#about" class="col-lg-2 col-md-2  col-sm-2 txt_white">О НАС</a>
+                            <a href= "" class="col-lg-3 col-md-3  col-sm-3 txt_white">КОНТАКТЫ</a>
                         </div>
-                        <div class="col-lg-4 col-md-6 footer-left txt_white">
-                            <div class="col-lg-6 col-md-6">+7 (911) 214-29-27</div>
-                            <div class="col-lg-6 col-md-6">contourprokz@gmail.com</div>
+                        <div class="col-lg-4 col-md-6  col-sm-6 col-12 footer-left txt_white">
+                            <a href= "tel:+79112142927" class="col-lg-6 col-md-6 col-sm-6 ">+7 (911) 214-29-27</a>
+                            <a href= "mailto:contourprokz@gmail.com" class="col-lg-6 col-md-6 col-sm-6 ">contourprokz@gmail.com</a>
                         </div>
                     </div>
                 </div>
