@@ -3,8 +3,10 @@ from django.views import View
 
 from main.form import MessagesForm
 from main.helpers import GetContext
+
 from mailing.mail import Mail
 from dbcore.models import Feedback
+
 
 
 class MainPage(View):

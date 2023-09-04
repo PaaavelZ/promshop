@@ -177,6 +177,37 @@ class SliderInfo(models.Model):
         return self.name
         
 
+class SliderMainInfo(models.Model):
+    name = models.CharField(max_length=100, 
+                            blank=False, 
+                            null=False,
+                            verbose_name=_('Заголовок'),)
+    lang = models.ForeignKey('Language',
+                             related_name='sliderfullinfos',
+                             on_delete=models.SET_NULL,
+                             null=True,
+                             verbose_name=_('Язык'),)
+    class Meta:
+        verbose_name = 'Категория (слайдер)'
+        verbose_name_plural = 'Категории (слайдер)'
+
+
+class SliderInfo(models.Model):
+    name = models.CharField(max_length=100, 
+                            blank=False, 
+                            null=False,
+                            verbose_name=_('Заголовок'),)
+    slider_main_info = models.ForeignKey('SliderMainInfo',
+                                  related_name='sliderinfos',
+                                  on_delete=models.SET_NULL,
+                                  null=True,
+                                  verbose_name=_('Слайд'))
+    
+    class Meta:
+        verbose_name = 'Подкатегория (слайлдер)'
+        verbose_name_plural = 'Подкатегория (слайлдер)'
+
+
 class SliderChildInfo(models.Model):
     name = models.CharField(max_length=100, 
                             blank=False, 
