@@ -57,6 +57,22 @@ section {
     font-size: 1.7rem;
     background-color: rgba(00, 0, 00, 0);
 }
+.header-language {
+    display: flex;
+    flex-direction: row;
+}
+.header-language a {
+    padding-right: 5px;
+}
+
+
+/*Burger menu*/
+
+.menu {
+    display: none;
+}
+
+
 
 /*Hellow block with text*/
 .hellow_block{
@@ -209,7 +225,6 @@ section {
     padding: 25px 0px;
 }
 .slider-description-nav a {
-    padding-left: 40px;
     font-size: 3rem;
     color: #000 !important;
 }
@@ -360,7 +375,6 @@ section {
   @media screen and (max-width: 989px) {
     .slider-description-nav a {
         font-size: 2.5rem;
-        padding-left: 25px
     }
     .form-body {
         width: 100%;
@@ -372,4 +386,146 @@ section {
         margin-top: 70px;
     }
   }
-  
+  @media screen and (max-width: 768px) {
+    html{
+        font-size: 12px;
+    }
+    .header {
+        font-size: 1.5rem;
+    }
+    .slider {
+        margin-top: 50px;
+    }
+    .text-block-body-txt {
+        font-size: 3.5rem;
+        padding: 0px;
+    }
+    .column-heading {
+        font-size: 2.5rem;
+    }
+    .footer-body {
+        font-size: 1rem;
+    }
+    .form_send {
+        width: 50%;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    html{
+        font-size: 10px;
+    }
+    .header-logo {
+        font-size: 2rem;
+        display: flex;
+    }
+    .slider-heading {
+    padding-left: 10px;
+    }
+    .hellow_block-tag {
+        padding: 0 10px;
+        font-size: 5rem !important;
+    }
+    .hellow_block-description {
+        font-size: 2rem;
+    }
+    .slider {
+        margin-top: 10px;
+    }
+    .message-block {
+        font-size: 2.5rem;
+        padding: 10px;
+    }
+    .slider-description-nav a {
+        font-size: 2.4rem;
+        padding-left: 0px;
+    }
+    .slider-description-nav {
+        justify-content: space-between;
+    }
+    .text-block-body-txt {
+        font-size: 3rem;
+        padding: 0px;
+    }
+    .form-body {
+        padding-bottom: 20px;
+    }
+    .footer-body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+/*MOBILE Burger*/  
+@media screen and (max-width: 576px) {
+    .menu {
+        display: flex;
+        align-items: end;
+        justify-content: end;
+    }
+    .header-menu{
+        display: none;
+    }
+    .menu-language {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    a:hover {
+        color: #b1b1b1;
+    }
+    .ikona {
+        margin: 5px;
+    }
+    .d {
+        width: 35px;
+        height: 5px;
+        background: white;
+        margin: 6px;
+        border-radius: 3px;
+        cursor: pointer;
+        z-index: 1;
+        transition: 0.6s;
+    }
+    .d:hover:nth-child(2) {
+        transform: translateX(2px);
+    }
+    .overlay {
+        display: none;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        background-color: rgba(00, 00, 0, 0.5);
+        overflow-x: hidden;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .overlay a {
+        padding: 8px;
+        font-size: 36px;
+        display: block;
+    }
+    .list {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .anim .overlay {
+        opacity: 1;
+        display: block;
+    }
+    .anim .d:nth-child(1) {
+        transform: rotate(405deg) translate(5px, 10px);
+    }
+    .anim .d:nth-child(2) {
+        transform: translateX(35px);
+        opacity: 0;
+    }
+    .anim .d:nth-child(3) {
+        transform: rotate(-405deg) translate(5px, -10px);
+    }
+
+}
