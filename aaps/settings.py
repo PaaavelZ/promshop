@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ["*",]
-CSRF_TRUSTED_ORIGINS = ["*",]
+CSRF_TRUSTED_ORIGINS = ['https://contour-pro.kz']
 
 
 # Application definition
