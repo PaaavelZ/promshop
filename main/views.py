@@ -11,12 +11,19 @@ from dbcore.models import Feedback
 
 class MainPage(View):
     def get(self, request, *args, **kwargs):
-        context = GetContext(lang=kwargs.get('lang'))()
+        context = GetContext(lang='kz')()
         context['form'] = MessagesForm()
         return render(request, 'main.html', context)
     
 
-class Test(View):
+class Page(View):
+    def get(self, request, *args, **kwargs):
+        context = GetContext(lang=kwargs.get('lang'))()
+        context['form'] = MessagesForm()
+        return render(request, 'main.html', context)
+
+
+class Feedback(View):
     def post(self, request, *args, **kwargs):
         form = MessagesForm(request.POST, request.FILES)
         if form.is_valid():

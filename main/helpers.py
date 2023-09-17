@@ -6,9 +6,12 @@ from dbcore.models import MainOffer, Offer, FullInfo, MainInfo, Info, SliderMain
 
 @dataclass
 class GetContext:
-    lang: str
+    lang: str = ''
 
     def __call__(self, *args: Any, **kwds: Any) -> Any:
+        if self.lang not in ('ru', 'kz', 'eng'):
+            self.lang = 'kz'
+
         return {    
             'main_offer':self._get_main_offer(),
             'offers': self._get_offers(),

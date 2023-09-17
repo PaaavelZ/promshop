@@ -38,8 +38,8 @@ class MainPage(models.Model):
                              verbose_name=_('Язык'),)
 
     class Meta:
-        verbose_name = 'Главная страница'
-        verbose_name_plural = 'Главная страница'
+        verbose_name = '1. Главная страница'
+        verbose_name_plural = '1. Главная страница'
 
     def __str__(self) -> str:
         return self.company_name
@@ -57,8 +57,8 @@ class MainOffer(models.Model):
                              verbose_name=_('Язык'),)
 
     class Meta:
-        verbose_name = 'Слайд с предложениями'
-        verbose_name_plural = 'Слайды с предложениями'
+        verbose_name = '2. Слайд с предложениями'
+        verbose_name_plural = '2. Слайды с предложениями'
 
     def __str__(self) -> str:
         return self.name
@@ -96,8 +96,8 @@ class FullInfo(models.Model):
                              null=True,
                              verbose_name=_('Язык'),)
     class Meta:
-        verbose_name = 'Информация'
-        verbose_name_plural = 'Информации'
+        verbose_name = '3. Информация'
+        verbose_name_plural = '3. Информация'
 
     def __str__(self) -> str:
         return self.name
@@ -188,8 +188,8 @@ class SliderMainInfo(models.Model):
                              null=True,
                              verbose_name=_('Язык'),)
     class Meta:
-        verbose_name = 'Категория (слайдер)'
-        verbose_name_plural = 'Категории (слайдер)'
+        verbose_name = '4. Категория (слайдер)'
+        verbose_name_plural = '4. Категории (слайдер)'
 
 
 class SliderInfo(models.Model):
@@ -225,8 +225,8 @@ class SliderChildInfo(models.Model):
                              verbose_name=_('Слайд'))
     
     class Meta:
-        verbose_name = 'Пример (слайлдер)'
-        verbose_name_plural = 'Примеры (слайлдер)'
+        verbose_name = '5. Пример (слайлдер)'
+        verbose_name_plural = '5. Примеры (слайлдер)'
 
     def __str__(self) -> str:
         return self.name
@@ -248,8 +248,8 @@ class Feedback(models.Model):
     text = RichTextField()
 
     class Meta:
-        verbose_name = 'Клиентская заявка'
-        verbose_name_plural = 'Клиентские заявки'
+        verbose_name = '6. Клиентская заявка'
+        verbose_name_plural = '6. Клиентские заявки'
 
     def __str__(self) -> str:
         return self.email
@@ -270,8 +270,8 @@ class EmailEntry(models.Model):
         self.save(update_fields=['is_sent'])
 
     class Meta:
-        verbose_name = 'Имейлы'
-        verbose_name_plural = 'Имейлы'
+        verbose_name = '7. Имейлы'
+        verbose_name_plural = '7. Имейлы'
 
     def __str__(self) -> str:
         return self.to_email
