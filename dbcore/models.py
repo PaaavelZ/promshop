@@ -45,13 +45,13 @@ class MainPage(models.Model):
         return self.company_name
 
 
-class MainOffer(models.Model):
+class Offer(models.Model):
     name = models.CharField(max_length=100, 
                             blank=False, 
                             null=False,
                             verbose_name=_('Название слайда'),)
     lang = models.ForeignKey('Language',
-                             related_name='mainoffers',
+                             related_name='offers',
                              on_delete=models.SET_NULL,
                              null=True,
                              verbose_name=_('Язык'),)
@@ -64,18 +64,18 @@ class MainOffer(models.Model):
         return self.name
 
 
-class Offer(models.Model):
+class ChildOffer(models.Model):
     name = models.CharField(max_length=100, 
                             blank=False, 
                             null=False,
                             verbose_name=_('Заголовок'),)
     text = RichTextField(verbose_name=_('Текст заголовка'),)
     img = models.ImageField(verbose_name='Картинка позади текста')
-    main_offer = models.ForeignKey('MainOffer',
-                                   related_name='offers',
-                                   on_delete=models.SET_NULL,
-                                   null=True,
-                                   verbose_name=_('Слайд'),)
+    offer = models.ForeignKey('Offer',
+                            related_name='childoffers',
+                            on_delete=models.SET_NULL,
+                            null=True,
+                            verbose_name=_('Слайд'),)
     
     class Meta:
         verbose_name = 'Предложение'
@@ -85,13 +85,13 @@ class Offer(models.Model):
         return self.name
 
 
-class FullInfo(models.Model):
+class Info(models.Model):
     name = models.CharField(max_length=100, 
                             blank=False, 
                             null=False,
                             verbose_name=_('Заголовок'),)
     lang = models.ForeignKey('Language',
-                             related_name='fullinfos',
+                             related_name='infos',
                              on_delete=models.SET_NULL,
                              null=True,
                              verbose_name=_('Язык'),)
@@ -103,13 +103,13 @@ class FullInfo(models.Model):
         return self.name
 
         
-class MainInfo(models.Model):
+class CategoryInfo(models.Model):
     name = models.CharField(max_length=100, 
                             blank=False, 
                             null=False,
                             verbose_name=_('Заголовок'),)
-    full_info = models.ForeignKey('FullInfo',
-                             related_name='maininfos',
+    info = models.ForeignKey('Info',
+                             related_name='categoryinfos',
                              on_delete=models.SET_NULL,
                              null=True,
                              verbose_name=_('Главный текст'),)
@@ -121,13 +121,13 @@ class MainInfo(models.Model):
         return self.name
 
 
-class Info(models.Model):
+class ChildCategoryInfo(models.Model):
     name = models.CharField(max_length=100, 
                             blank=False, 
                             null=False,
                             verbose_name=_('Заголовок'),)
-    main_info = models.ForeignKey('MainInfo',
-                                  related_name='infos',
+    category_info = models.ForeignKey('CategoryInfo',
+                                  related_name='childcategoryinfos',
                                   on_delete=models.SET_NULL,
                                   null=True,
                                   verbose_name=_('Слайд'))
@@ -139,98 +139,6 @@ class Info(models.Model):
     def __str__(self) -> str:
         return self.name
     
-
-class SliderMainInfo(models.Model):
-    name = models.CharField(max_length=100, 
-                            blank=False, 
-                            null=False,
-                            verbose_name=_('Заголовок'),)
-    lang = models.ForeignKey('Language',
-                             related_name='sliderfullinfos',
-                             on_delete=models.SET_NULL,
-                             null=True,
-                             verbose_name=_('Язык'),)
-    class Meta:
-        verbose_name = 'Категория (слайдер)'
-        verbose_name_plural = 'Категории (слайдер)'
-
-    def __str__(self) -> str:
-        return self.name
-    
-
-class SliderInfo(models.Model):
-    name = models.CharField(max_length=100, 
-                            blank=False, 
-                            null=False,
-                            verbose_name=_('Заголовок'),)
-    slider_main_info = models.ForeignKey('SliderMainInfo',
-                                  related_name='sliderinfos',
-                                  on_delete=models.SET_NULL,
-                                  null=True,
-                                  verbose_name=_('Слайд'))
-    
-    class Meta:
-        verbose_name = 'Подкатегория (слайлдер)'
-        verbose_name_plural = 'Подкатегория (слайлдер)'
-
-    def __str__(self) -> str:
-        return self.name
-        
-
-class SliderMainInfo(models.Model):
-    name = models.CharField(max_length=100, 
-                            blank=False, 
-                            null=False,
-                            verbose_name=_('Заголовок'),)
-    lang = models.ForeignKey('Language',
-                             related_name='sliderfullinfos',
-                             on_delete=models.SET_NULL,
-                             null=True,
-                             verbose_name=_('Язык'),)
-    class Meta:
-        verbose_name = '4. Категория (слайдер)'
-        verbose_name_plural = '4. Категории (слайдер)'
-
-
-class SliderInfo(models.Model):
-    name = models.CharField(max_length=100, 
-                            blank=False, 
-                            null=False,
-                            verbose_name=_('Заголовок'),)
-    slider_main_info = models.ForeignKey('SliderMainInfo',
-                                  related_name='sliderinfos',
-                                  on_delete=models.SET_NULL,
-                                  null=True,
-                                  verbose_name=_('Слайд'))
-    
-    class Meta:
-        verbose_name = 'Подкатегория (слайлдер)'
-        verbose_name_plural = 'Подкатегория (слайлдер)'
-
-    def __str__(self) -> str:
-        return self.name
-
-
-class SliderChildInfo(models.Model):
-    name = models.CharField(max_length=100, 
-                            blank=False, 
-                            null=False,
-                            verbose_name=_('Заголовок'),)
-    img = models.FileField(verbose_name='Фото', null=True, blank=True)
-    text = RichTextField(verbose_name='Текст')
-    slider_info = models.ForeignKey('SliderInfo',
-                             related_name='sliderchildinfos',
-                             on_delete=models.SET_NULL,
-                             null=True,
-                             verbose_name=_('Слайд'))
-    
-    class Meta:
-        verbose_name = '5. Пример (слайлдер)'
-        verbose_name_plural = '5. Примеры (слайлдер)'
-
-    def __str__(self) -> str:
-        return self.name
-
 
 class Feedback(models.Model):
     fio = models.CharField(max_length=255, 
@@ -248,8 +156,8 @@ class Feedback(models.Model):
     text = RichTextField()
 
     class Meta:
-        verbose_name = '6. Клиентская заявка'
-        verbose_name_plural = '6. Клиентские заявки'
+        verbose_name = '4. Клиентская заявка'
+        verbose_name_plural = '4. Клиентские заявки'
 
     def __str__(self) -> str:
         return self.email
@@ -270,8 +178,8 @@ class EmailEntry(models.Model):
         self.save(update_fields=['is_sent'])
 
     class Meta:
-        verbose_name = '7. Имейлы'
-        verbose_name_plural = '7. Имейлы'
+        verbose_name = '5. Имейлы'
+        verbose_name_plural = '5. Имейлы'
 
     def __str__(self) -> str:
         return self.to_email

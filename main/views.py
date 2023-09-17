@@ -23,7 +23,7 @@ class Page(View):
         return render(request, 'main.html', context)
 
 
-class Feedback(View):
+class FeedbackView(View):
     def post(self, request, *args, **kwargs):
         form = MessagesForm(request.POST, request.FILES)
         if form.is_valid():

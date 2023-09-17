@@ -3,28 +3,23 @@ from django.contrib.admin.options import StackedInline, TabularInline
 from django.http.request import HttpRequest
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 
-from dbcore.models import (Language, MainPage, MainOffer, Offer, FullInfo, MainInfo, Info, SliderMainInfo, SliderInfo, SliderChildInfo, Feedback, EmailEntry)
+from dbcore.models import (Language, MainPage, Offer, ChildOffer, Info, CategoryInfo, ChildCategoryInfo, Feedback, EmailEntry)
 
 
-class OfferInLine(admin.StackedInline):
-    model = Offer
+class ChildOfferInLine(admin.StackedInline):
+    model = ChildOffer
     extra = 1
 
 
-class SliderInfoInLine(NestedStackedInline):
-    model = SliderInfo
-    extra = 1
-
-
-class InfoInLine(NestedStackedInline):
-    model = Info
+class ChildCategoryInfoInLine(NestedStackedInline):
+    model = ChildCategoryInfo
     extra = 0
 
 
-class MainInfoInLine(NestedStackedInline):
-    model = MainInfo
+class CategoryInfoInLine(NestedStackedInline):
+    model = CategoryInfo
     extra = 0
-    inlines = [InfoInLine]
+    inlines = [ChildCategoryInfoInLine]
 
 
 @admin.register(Language)
@@ -37,32 +32,18 @@ class MainPageAdmin(admin.ModelAdmin):
     list_display = ('company_name',)
 
 
-@admin.register(MainOffer)
+@admin.register(Offer)
 class MainOfferAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
-    inlines = [OfferInLine]
+    inlines = [ChildOfferInLine]
 
 
-@admin.register(FullInfo)
-class FullInfoAdmin(NestedModelAdmin):
+@admin.register(Info)
+class InfoAdmin(NestedModelAdmin):
     list_display = ('name',)
 
-    inlines = [MainInfoInLine]
-
-
-@admin.register(SliderMainInfo)
-class SliderMainInfoAdmin(NestedModelAdmin):
-    list_display = ('name',)
-
-    inlines = [SliderInfoInLine]
-
-
-@admin.register(SliderChildInfo)
-class SliderChildInfoAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    list_filter = ('slider_info',)
-    search_fields = ('slider_info',)
+    inlines = [CategoryInfoInLine]
 
     
 @admin.register(Feedback)
