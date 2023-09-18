@@ -29,32 +29,15 @@
     <div class="header fixed-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-4 col-sm-3 col-7 header-logo"> <a href="#main" class="txt_orange">КОНТУР ПРО</a></div>
-                <div class="col-lg-6 col-md-8 col-sm-9 txt_white header-menu">
-                    <div class="col-lg-3">
-                        <a href="#about">О НАС</a>
-                    </div>
-                    <div class="col-lg-3">
-                        <a href="">КОНТАКТЫ</a>
-                    </div>
-                    <div class="col-lg-5">
-                        <a href="#contact">ОСТАВИТЬ ЗАЯВКУ</a>
-                    </div>
-                    <div class="col-lg-1 header-language">
-                        <!--<ul class="nav navbar-nav">
-                            <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">RU<b class="caret"></b></a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">RU</a></li>
-                                <li><a href="#">KZ</a></li>
-                                <li><a href="#">EN</a></li>
-                              </ul>
-                            </li>
-                          </ul>-->
-                        <a href="#">RU </a>
-                        <a href="#">KZ </a>
-                        <a href="#">EN </a>
-                    </div>
+                <div class="col-lg-4 col-md-2 col-sm-3 col-7 header-logo"> <a href="#main" class="txt_orange">КОНТУР
+                        ПРО</a></div>
+                <div class="col-lg-8 col-md-10 col-sm-9 txt_white header-menu">
+                    <a href="#about">О НАС</a>
+                    <a href="#contact">КОНТАКТЫ</a>
+                    <a href="#contact">ОСТАВИТЬ ЗАЯВКУ</a>
+                    <div class="header-language "><a href="#"></a><p>KZ</p></div>
+                    <div class="header-language "><a href="#"></a><p>RU</p></div>
+                    <div class="header-language "><a href="#"></a><p>EN</p></div>
                 </div>
                 <div class='menu col-5'>
                     <div class="menu-box">
@@ -69,9 +52,9 @@
                                     <a href='#'>КОНТАКТЫ</a>
                                     <a href='#contact'>ОСТАВИТЬ ЗАЯВКУ</a>
                                     <div class="menu-language">
-                                        <a href="#">RU </a>
-                                        <a href="#">KZ </a>
-                                        <a href="#">EN </a>
+                                        <div class="header-language "><a href="#"></a><p>KZ</p></div>
+                                        <div class="header-language "><a href="#"></a><p>RU</p></div>
+                                        <div class="header-language "><a href="#"></a><p>EN</p></div>
                                     </div>
 
                                 </div>
@@ -85,7 +68,7 @@
     <main>
         <div class="hellow_block" id="main">
             <div class="hellow_block-tag txt_white">
-                <p><span class="txt_orange">Превосходство</span> в измерениях</p>
+                <p><span class="txt_orange">Превосходство</span> <br class="mobfix"> в измерениях</p>
             </div>
             <div class="hellow_block-description txt_white">
                 <p>Надежное оборудование из Европы для энергетики, нефтегазовой отрасли и водно-коммунального хозяйства
@@ -101,9 +84,9 @@
                     </div>
                     <div class="slider slider-nav col-lg-6">
                         {% for offer in offers%}
-                            <div class="slider-nav-block">
-                                <p>{{offer.name}}</p>
-                            </div>
+                        <div class="slider-nav-block">
+                            <p>{{offer.name}}</p>
+                        </div>
                         {% endfor %}
                     </div>
                     <div class="slider slider-for col-lg-6">
@@ -134,27 +117,25 @@
         <section>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7 text-block-heading">
-                        <p>{{ info_title.name }}</p>
+                    <div class="col-lg-12 text-block-heading">
+                        <p class="col-lg-10">{{ info_title.name }}</p>
                     </div>
                     {% for info in infos_no_slider%}
-                        <div class="col-lg-12 text-block-subtitle">
-                            <div class="col-lg-4">
-                                <p class="text-block-subtitle_bordered">{{ info.name }}</p>
-                            </div>
+                    <div class="col-lg-12 text-block-subtitle">
+                        <div class="col-lg-4">
+                            <p class="text-block-subtitle_bordered">{{ info.name }}</p>
                         </div>
-                        <div class="col-lg-12 text-block-body">
-                            <div class="col-lg-12 text-block-body-txt">
-                                {% for mini_info in info.infos.all%}
-                                    <p>{{ mini_info.name }}</p> 
-                                {% endfor %}
-                            </div>
+                    </div>
+                    <div class="col-lg-12 text-block-body">
+                        <div class="col-lg-12 text-block-body-txt">
+                            {% for mini_info in info.infos.all%}
+                            <p>{{ mini_info.name }}</p>
+                            {% endfor %}
                         </div>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
-        </section>
-        <section>
             <div class="container">
                 <div class="row">
                     {% for info in infos_slider%}
@@ -166,23 +147,24 @@
                     <div class="description-slider col-lg-12">
                         <div class="slider-description-nav col-lg-9 col-md-12 col-sm-12 col-12">
                             {% for title_mini_info in info.sliderinfos.all%}
-                                <a href="#" data-slide="{{ forloop.counter }}" class="col-xs-4 col-lg-4 col-md-3 col-sm-3">{{ title_mini_info.name }}</a>
+                            <a href="#" data-slide="{{ forloop.counter }}"
+                                class="col-xs-4 col-lg-4 col-md-3 col-sm-3">{{ title_mini_info.name }}</a>
                             {% endfor %}
                         </div>
                         <div class="slider-description-for col-lg-12">
                             {% for title_mini_info in info.sliderinfos.all%}
-                                <div class="">
-                                        <div class="slider-description-block">
-                                            {% for mini_info in title_mini_info.sliderchildinfos.all%}
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-5 slider-description-column">
-                                                <div class="column-heading">{{ mini_info.name }}</div>
-                                                <div class="column-picture"></div>
-                                                <div class="column-description">{{ mini_info.text|safe }}</div>
-                                            </div>
-                                            <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
-                                            {% endfor%}
-                                        </div>
+                            <div class="">
+                                <div class="slider-description-block">
+                                    {% for mini_info in title_mini_info.sliderchildinfos.all%}
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-5 slider-description-column">
+                                        <div class="column-heading">{{ mini_info.name }}</div>
+                                        <div class="column-picture"></div>
+                                        <div class="column-description">{{ mini_info.text|safe }}</div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-1"></div>
+                                    {% endfor%}
                                 </div>
+                            </div>
                             {% endfor %}
                         </div>
                     </div>
@@ -202,18 +184,18 @@
                                 <p class="txt_white form-title">ОСТАВЛЯЙТЕ ЗАЯВКУ И МЕНЕДЖЕР С ВАМИ СВЯЖЕТСЯ </p>
                                 <div class="form-input">
                                     <div class="form-required">
-                                            {{ form.fio }}
-                                            {{ form.phone }}
-                                            {{ form.email }} 
+                                        {{ form.fio }}
+                                        {{ form.phone }}
+                                        {{ form.email }}
                                     </div>
                                     <div class="form-notrequired">
                                         {{ form.comment }}
                                     </div>
                                 </div>
-                                <input type="submit" value="Submit" name="submit" class="input-field form_send" placeholder="ОТПРАВИТЬ"
-                                    required="" id="id_fio">
+                                <input type="submit" value="Submit" name="submit" class="input-field form_send"
+                                    placeholder="ОТПРАВИТЬ" required="" id="id_fio">
                             </div>
-                        </form> 
+                        </form>
                     </div>
                 </div>
             </div>
@@ -223,16 +205,17 @@
         <div class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 footer-body">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 footer-body">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12 footer-right">
-                            <a href= "#main" class="col-lg-3 col-md-3  col-sm-3 txt_orange">КОНТУР ПРО</a>
-                            <a href= "" class="col-lg-3 col-md-3  col-sm-3 txt_white">ДОКУМЕНТЫ</a>
-                            <a href= "#about" class="col-lg-2 col-md-2  col-sm-2 txt_white">О НАС</a>
-                            <a href= "" class="col-lg-3 col-md-3  col-sm-3 txt_white">КОНТАКТЫ</a>
+                            <a href="#main" class="col-lg-3 col-md-3  col-sm-3 txt_orange">КОНТУР ПРО</a>
+                            <a href="" class="col-lg-3 col-md-3  col-sm-3 txt_white">ДОКУМЕНТЫ</a>
+                            <a href="#about" class="col-lg-2 col-md-2  col-sm-2 txt_white">О НАС</a>
+                            <a href="" class="col-lg-3 col-md-3  col-sm-3 txt_white">КОНТАКТЫ</a>
                         </div>
                         <div class="col-lg-4 col-md-6  col-sm-6 col-12 footer-left txt_white">
-                            <a href= "tel:+79112142927" class="col-lg-6 col-md-6 col-sm-6 ">+7 (911) 214-29-27</a>
-                            <a href= "mailto:contourprokz@gmail.com" class="col-lg-6 col-md-6 col-sm-6 ">contourprokz@gmail.com</a>
+                            <a href="tel:+77781913670" class="col-lg-6 col-md-6 col-sm-6 ">+7 7781913670</a>
+                            <a href="mailto:contourprokz@gmail.com"
+                                class="col-lg-6 col-md-6 col-sm-6 ">contourprokz@gmail.com</a>
                         </div>
                     </div>
                 </div>
