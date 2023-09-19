@@ -29,15 +29,18 @@
     <div class="header fixed-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-2 col-sm-3 col-7 header-logo"> <a href="#main" class="txt_orange">КОНТУР
+                <div class="col-lg-4 col-md-12 col-sm-12 col-7 header-logo"> <a href="#main" class="txt_orange">КОНТУР
                         ПРО</a></div>
-                <div class="col-lg-8 col-md-10 col-sm-9 txt_white header-menu">
+                <div class="col-lg-8 col-md-12 col-sm-12 txt_white header-menu">
                     <a href="#about">О НАС</a>
                     <a href="#contact">КОНТАКТЫ</a>
                     <a href="#contact">ОСТАВИТЬ ЗАЯВКУ</a>
-                    <div class="header-language "><a href="#"></a><p>KZ</p></div>
-                    <div class="header-language "><a href="#"></a><p>RU</p></div>
-                    <div class="header-language "><a href="#"></a><p>EN</p></div>
+                    <div class="header-language "><a href="#"></a>
+                    </div>
+                    <div class="header-language "><a href="#"></a>
+                    </div>
+                    <div class="header-language "><a href="#"></a>
+                    </div>
                 </div>
                 <div class='menu col-5'>
                     <div class="menu-box">
@@ -49,12 +52,15 @@
                             <div class='overlay'>
                                 <div class='list'>
                                     <a href="#about">О НАС</a>
-                                    <a href='#'>КОНТАКТЫ</a>
+                                    <a href='#contact'>КОНТАКТЫ</a>
                                     <a href='#contact'>ОСТАВИТЬ ЗАЯВКУ</a>
                                     <div class="menu-language">
-                                        <div class="header-language "><a href="#"></a><p>KZ</p></div>
-                                        <div class="header-language "><a href="#"></a><p>RU</p></div>
-                                        <div class="header-language "><a href="#"></a><p>EN</p></div>
+                                        <div class="header-language "><a href="#"></a>
+                                        </div>
+                                        <div class="header-language "><a href="#"></a>
+                                        </div>
+                                        <div class="header-language "><a href="#"></a>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -116,7 +122,7 @@
 
         <section>
             <div class="container">
-                <div class="row">
+                <div class="row text-block">
                     <div class="col-lg-12 text-block-heading">
                         <p class="col-lg-10">{{ info_title.name }}</p>
                     </div>
@@ -128,7 +134,7 @@
                     </div>
                     <div class="col-lg-12 text-block-body">
                         <div class="col-lg-12 text-block-body-txt">
-                            {% for mini_info in info.infos.all%}
+                            {% for mini_info in info.childcategoryinfos.all%}
                             <p>{{ mini_info.name }}</p>
                             {% endfor %}
                         </div>
@@ -136,7 +142,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="container">
+           <!-- SLIDER  <div class="container">
                 <div class="row">
                     {% for info in infos_slider%}
                     <div class="col-lg-12 text-block-subtitle">
@@ -170,6 +176,7 @@
                     </div>
                     {% endfor %}
                 </div>
+            </div>-->
         </section>
         <section>
             <div class="container" id="contact">
@@ -192,7 +199,7 @@
                                         {{ form.comment }}
                                     </div>
                                 </div>
-                                <input type="submit" value="Submit" name="submit" class="input-field form_send"
+                                <input type="submit" value="ОТПРАВИТЬ" name="submit" class="input-field form_send"
                                     placeholder="ОТПРАВИТЬ" required="" id="id_fio">
                             </div>
                         </form>
@@ -206,13 +213,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 footer-body">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 footer-right">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-11 footer-right">
                             <a href="#main" class="col-lg-3 col-md-3  col-sm-3 txt_orange">КОНТУР ПРО</a>
                             <a href="" class="col-lg-3 col-md-3  col-sm-3 txt_white">ДОКУМЕНТЫ</a>
                             <a href="#about" class="col-lg-2 col-md-2  col-sm-2 txt_white">О НАС</a>
-                            <a href="" class="col-lg-3 col-md-3  col-sm-3 txt_white">КОНТАКТЫ</a>
+                            <a href="#contact" class="col-lg-3 col-md-3  col-sm-3 txt_white">КОНТАКТЫ</a>
                         </div>
-                        <div class="col-lg-4 col-md-6  col-sm-6 col-12 footer-left txt_white">
+                        <div class="col-lg-4 col-md-6  col-sm-6 col-11 footer-left txt_white">
                             <a href="tel:+77781913670" class="col-lg-6 col-md-6 col-sm-6 ">+7 7781913670</a>
                             <a href="mailto:contourprokz@gmail.com"
                                 class="col-lg-6 col-md-6 col-sm-6 ">contourprokz@gmail.com</a>

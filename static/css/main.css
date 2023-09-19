@@ -72,7 +72,7 @@ section {
 
 .header-menu :nth-child(4) a{
     height: 40px;
-    width: 75px;
+    width: 40px;
     background-image: url("../img/kz.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -80,7 +80,7 @@ section {
 }
 .header-menu :nth-child(5) a{
     height: 40px;
-    width: 75px;
+    width: 40px;
     background-image: url("../img/rf.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -88,7 +88,7 @@ section {
 }
 .header-menu :nth-child(6) a{
     height: 40px;
-    width: 75px;
+    width: 40px;
     background-image: url("../img/gb.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -210,15 +210,16 @@ section {
 
 /*Text block*/
 .text-block-heading{
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #3C3B3B;
 }
 .text-block-subtitle {
-    margin-top: 2rem;
-    font-size: 3rem;
+    margin-top: 1.875rem;
+    font-size: 1.875rem;
 }
 .text-block-subtitle_bordered{
     display: inline;
@@ -228,13 +229,15 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 25px;
 }
 .text-block-body-txt{
     position:relative;
-    font-size: 3rem;
+    font-size: 1.875rem;
     text-align: left;
     padding: 25px;
+}
+.text-block-body-txt :nth-child(3){
+    margin-bottom: 0px;
 }
 /*.text-block-body-txt::before{
     content:"";
@@ -408,6 +411,7 @@ section {
         justify-content: space-around; 
         font-size: 1.1rem;
     }
+    
   }
   @media screen and (max-width: 989px) {
     .slider-description-nav a {
@@ -420,7 +424,10 @@ section {
         padding: 0px 10px;
     }
     section{
-        margin-top: 70px;
+        margin-top: 40px;
+    }
+    .text-block :nth-child(5) .text-block-body-txt{ 
+        text-align: center;
     }
   }
   @media screen and (max-width: 768px) {
@@ -434,8 +441,16 @@ section {
         margin-top: 50px;
     }
     .text-block-body-txt {
-        font-size: 3.5rem;
+        margin-top: 2rem;
+        font-size: 2.5rem;
         padding: 0px;
+    }
+    .text-block-subtitle_bordered {
+        border: none;
+        color: #F7654A;
+    }
+    .text-block-subtitle {
+        font-size: 2.5rem;
     }
     .column-heading {
         font-size: 2.5rem;
@@ -483,10 +498,13 @@ section {
         justify-content: space-between;
     }
     .text-block-heading {
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+    .text-block-subtitle {
+        font-size: 2rem;
     }
     .text-block-body-txt {
-        font-size: 3rem;
+        font-size: 2rem;
         padding: 0px;
     }
     .text-block-subtitle_bordered {
