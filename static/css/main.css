@@ -370,7 +370,7 @@ section {
 }
 .form_info{
     width: 100%;
-    height: -webkit-fill-available;
+    height: 200px;
 }
 .form_send {
     margin-top: 50px;
@@ -426,7 +426,7 @@ section {
     section{
         margin-top: 40px;
     }
-    .text-block :nth-child(5) .text-block-body-txt{ 
+    .text-block-body-txt{ 
         text-align: center;
     }
   }

@@ -15,8 +15,8 @@ $('.slider-for').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
-  asNavFor: '.slider-nav',
   infinite: false,
+  adaptiveHeight: true
 });
 
 $('.slider-nav').slick({
