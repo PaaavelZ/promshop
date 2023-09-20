@@ -31,8 +31,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["*",]
+ALLOWED_HOSTS = ['https://contour-pro.kz',]
 CSRF_TRUSTED_ORIGINS = ['https://contour-pro.kz']
+INTERNAL_IPS = ['178.89.187.84',]
 CSRF_COOKIE_SAMESITE = None
 SESSION_COOKIE_SAMESITE = None
 
