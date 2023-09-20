@@ -26,11 +26,7 @@ class Language(models.Model):
     
 
 class MainPage(models.Model):
-    company_name = models.CharField(max_length=50, 
-                                    blank=False, 
-                                    null=False,
-                                    verbose_name=_('Имя компании'),)
-    text = RichTextField(verbose_name=_('Главный текст'),)
+    text = models.TextField(verbose_name=_('Главный текст'),)
     lang = models.ForeignKey('Language',
                              related_name='mainpages',
                              on_delete=models.SET_NULL,
@@ -42,7 +38,7 @@ class MainPage(models.Model):
         verbose_name_plural = '1. Главная страница'
 
     def __str__(self) -> str:
-        return self.company_name
+        return self.text
 
 
 class Offer(models.Model):

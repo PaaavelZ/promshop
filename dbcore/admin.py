@@ -29,7 +29,7 @@ class LanguageAdmin(admin.ModelAdmin):
 
 @admin.register(MainPage)
 class MainPageAdmin(admin.ModelAdmin):
-    list_display = ('company_name',)
+    list_display = ('text',)
 
 
 @admin.register(Offer)

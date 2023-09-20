@@ -1,7 +1,7 @@
 from  dataclasses import dataclass
 from typing import Any
 
-from dbcore.models import Offer, ChildOffer, Info, CategoryInfo
+from dbcore.models import MainPage, Offer, ChildOffer, Info, CategoryInfo
 
 
 @dataclass
@@ -13,11 +13,16 @@ class GetContext:
             self.lang = 'kz'
 
         return {    
-            'main_offer':self._get_main_offer(),
+            'lang': self.lang,
+            'main_page': self._get_main_page(),
+            'main_offer': self._get_main_offer(),
             'offers': self._get_offers(),
             'info_title': self._get_info_title(),
             'infos_no_slider': self._get_infos_with_no_slider(),
         }
+
+    def _get_main_page(self):
+        return MainPage.objects.filter(lang__name=self.lang).last()
 
     def _get_main_offer(self):
         return Offer.objects.filter(lang__name=self.lang).last()

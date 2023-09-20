@@ -12,14 +12,14 @@ from dbcore.models import Feedback
 class MainPage(View):
     def get(self, request, *args, **kwargs):
         context = GetContext(lang='kz')()
-        context['form'] = MessagesForm()
+        context['form'] = MessagesForm(lang='kz')
         return render(request, 'main.html', context)
     
 
 class Page(View):
     def get(self, request, *args, **kwargs):
         context = GetContext(lang=kwargs.get('lang'))()
-        context['form'] = MessagesForm()
+        context['form'] = MessagesForm(lang=kwargs.get('lang'))
         return render(request, 'main.html', context)
 
 
