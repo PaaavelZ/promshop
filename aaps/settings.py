@@ -33,7 +33,7 @@ DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ['*',]
 CSRF_TRUSTED_ORIGINS = ['https://contour-pro.kz']
-INTERNAL_IPS = ['178.89.187.84',]
+
 CSRF_COOKIE_SAMESITE = None
 SESSION_COOKIE_SAMESITE = None
 
