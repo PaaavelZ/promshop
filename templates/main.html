@@ -30,17 +30,34 @@
     <div class="header fixed-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12 col-7 header-logo"> <a href="#main" class="txt_orange">КОНТУР
-                        ПРО</a></div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-7 header-logo"> <a href="#main" class="txt_orange">
+                    {% if lang == 'ru' %}
+                        КОНТУР ПРО
+                    {% elif lang == 'eng' %}
+                        CONTOUR PRO
+                    {% else %}
+                        ТҮЙМЕ ПРО
+                    {% endif %}
+                </a></div>
                 <div class="col-lg-8 col-md-12 col-sm-12 txt_white header-menu">
-                    <a href="#about">О НАС</a>
-                    <a href="#contact">КОНТАКТЫ</a>
-                    <a href="#contact">ОСТАВИТЬ ЗАЯВКУ</a>
-                    <div class="header-language "><a href="#"></a>
+                    {% if lang == 'ru' %}
+                        <a href="#about">О НАС</a>
+                        <a href='#contact'>КОНТАКТЫ</a>
+                        <a href='#contact'>ОСТАВИТЬ ЗАЯВКУ</a>
+                    {% elif lang == 'eng' %} 
+                        <a href="#about">ABOUT US</a>
+                        <a href='#contact'>CONTACTS</a>
+                        <a href='#contact'>OFFER</a>
+                    {% else %} 
+                        <a href="#about">БIЗ ТУРАЛЫ</a>
+                        <a href='#contact'>БАЙЛАНЫСТАР</a>
+                        <a href='#contact'>ҚОЛДАНУ</a>
+                    {% endif %}
+                    <div class="header-language "><a href="{% url 'main:main_page' %}"></a>
                     </div>
-                    <div class="header-language "><a href="#"></a>
+                    <div class="header-language "><a href="{% url 'main:page_with_lang' 'ru' %}"></a>
                     </div>
-                    <div class="header-language "><a href="#"></a>
+                    <div class="header-language "><a href="{% url 'main:page_with_lang' 'eng' %}"></a>
                     </div>
                 </div>
                 <div class='menu col-5'>
@@ -52,15 +69,25 @@
 
                             <div class='overlay'>
                                 <div class='list'>
-                                    <a href="#about">О НАС</a>
-                                    <a href='#contact'>КОНТАКТЫ</a>
-                                    <a href='#contact'>ОСТАВИТЬ ЗАЯВКУ</a>
+                                    {% if lang == 'ru' %}
+                                        <a href="#about">О НАС</a>
+                                        <a href='#contact'>КОНТАКТЫ</a>
+                                        <a href='#contact'>ОСТАВИТЬ ЗАЯВКУ</a>
+                                    {% elif lang == 'eng' %} 
+                                        <a href="#about">ABOUT US</a>
+                                        <a href='#contact'>CONTACTS</a>
+                                        <a href='#contact'>OFFER</a>
+                                    {% else %} 
+                                        <a href="#about">БIЗ ТУРАЛЫ</a>
+                                        <a href='#contact'>БАЙЛАНЫСТАР</a>
+                                        <a href='#contact'>ҚОЛДАНУ</a>
+                                    {% endif %}
                                     <div class="menu-language">
-                                        <div class="header-language "><a href="#"></a>
+                                        <div class="header-language "><a href="{% url 'main:main_page' %}"></a>
                                         </div>
-                                        <div class="header-language "><a href="#"></a>
+                                        <div class="header-language "><a href="{% url 'main:page_with_lang' 'ru' %}"></a>
                                         </div>
-                                        <div class="header-language "><a href="#"></a>
+                                        <div class="header-language "><a href="{% url 'main:page_with_lang' 'en' %}"></a>
                                         </div>
                                     </div>
 
@@ -75,10 +102,16 @@
     <main>
         <div class="hellow_block" id="main">
             <div class="hellow_block-tag txt_white">
-                <p><span class="txt_orange">Превосходство</span> <br class="mobfix"> в измерениях</p>
+                {% if lang == 'ru' %}
+                    <p><span class="txt_orange">Превосходство</span> <br class="mobfix"> в измерениях</p>
+                {% elif lang == 'eng' %}
+                    <p><span class="txt_orange">Excellence</span> <br class="mobfix"> in measurement</p>
+                {% else %}
+                    <p><span class="txt_orange">Өлшеудегі</span> <br class="mobfix"> артықшылық</p>
+                {% endif %}
             </div>
             <div class="hellow_block-description txt_white">
-                <p>Надежное оборудование из Европы для энергетики, нефтегазовой отрасли и водно-коммунального хозяйства
+                <p>{{ main_page.text }}
                 </p>
             </div>
         </div>
@@ -112,8 +145,14 @@
                 <div class="message-arrow col-lg-4 col-md-3 col-sm-2 col-1">
                     <div class="circle"></div>
                 </div>
-                <div class="message-block txt_white col-lg-4 col-md-6 col-sm-8 col-10"> <a href="#contact">ОСТАВИТЬ
-                        ЗАЯВКУ</a>
+                <div class="message-block txt_white col-lg-4 col-md-6 col-sm-8 col-10"> 
+                    {% if lang == 'ru' %}
+                        <a href="#contact">ОСТАВИТЬ ЗАЯВКУ</a>
+                    {% elif lang == 'eng' %}
+                        <a href="#contact">SUBMIT YOUR APPLICATION</a>
+                    {% else %}
+                        <a href="#contact">ӨТІНІШІҢІЗДІ ЖІБЕРІҢІЗ</a>
+                    {% endif %}
                 </div>
                 <div class="message-arrow col-lg-4 col-md-3 col-sm-2 col-1">
                     <div class="circle circle_rewerce"></div>
@@ -200,8 +239,16 @@
                                         {{ form.comment }}
                                     </div>
                                 </div>
-                                <input type="submit" value="ОТПРАВИТЬ" name="submit" class="input-field form_send"
+                                {% if lang == 'ru' %}
+                                    <input type="submit" value="ОТПРАВИТЬ" name="submit" class="input-field form_send"
                                     placeholder="ОТПРАВИТЬ" required="" id="id_fio">
+                                {% elif lang == 'eng' %}
+                                    <input type="submit" value="SEND" name="submit" class="input-field form_send"
+                                    placeholder="SEND" required="" id="id_fio">
+                                {% else %}
+                                    <input type="submit" value="ЖІБЕРУ" name="submit" class="input-field form_send"
+                                    placeholder="ЖІБЕРУ" required="" id="id_fio">
+                                {% endif %}
                             </div>
                         </form>
                     </div>
