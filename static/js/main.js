@@ -14,18 +14,24 @@ function menu(x) {
 $('.slider-for').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
+  draggable: false,
+  touchMove: false,
+  swipeToSlide: false,
+  swipe: false,
   arrows: false,
   infinite: false
 });
-
+console.log("Te")
 $('.slider-nav').slick({
   centerMode: true,
   slidesToShow: 4,
+  slidesToScroll: 0,
   asNavFor: '.slider-for',
   vertical: true,
   dots: false,
   focusOnSelect: true,
   arrows: false,
+  centerMode: true,
 });
 
 
