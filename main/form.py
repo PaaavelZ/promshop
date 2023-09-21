@@ -74,7 +74,8 @@ class MessagesForm(forms.Form):
                                 'id': 'id_fio',})
                           )
 
-    def __init__(self, lang, *args, **kwargs) -> None:
+    def __init__(self, *args, **kwargs) -> None:
+        lang = kwargs.pop('lang', None)
         super(MessagesForm, self).__init__(*args, **kwargs)
 
         self.fields['fio'].widget.attrs['placeholder'] = GetPlaceholder(lang=lang)(placeholder='fio')
