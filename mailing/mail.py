@@ -43,7 +43,7 @@ class Mail:
 
     def _mark_as_sent(self):
        EmailEntry.objects.create(
-           to_email=self.feedback.email,
+           feedback=self.feedback,
            subject = 'Новая заявка',
            text = self.text,
            is_sent=True

@@ -160,9 +160,10 @@ class Feedback(models.Model):
     
 
 class EmailEntry(models.Model):
-    to_email = models.CharField(max_length=255, 
-                                blank=False, 
-                                null=False,)
+    feedback = models.ForeignKey('Feedback',
+                                 related_name='emailentries',
+                                 on_delete=models.SET_NULL,
+                                 null=True)
     subject = models.CharField(max_length=255, 
                                blank=False, 
                                null=False,)
@@ -177,5 +178,5 @@ class EmailEntry(models.Model):
         verbose_name = '5. Имейлы'
         verbose_name_plural = '5. Имейлы'
 
-    def __str__(self) -> str:
-        return self.to_email
+    def __repr__(self) -> str:
+        return self.feedback.email
