@@ -86,6 +86,9 @@ class Info(models.Model):
                             blank=False, 
                             null=False,
                             verbose_name=_('Заголовок'),)
+    img = models.ImageField(verbose_name='Картинка сбоку', 
+                            null=True, 
+                            blank=True)
     lang = models.ForeignKey('Language',
                              related_name='infos',
                              on_delete=models.SET_NULL,

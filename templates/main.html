@@ -8,8 +8,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/site.webmanifest' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,22 +30,22 @@
 
     <style type="text/css">
         .text-block-img {
-            background-image: url("../static/img/kz.png");
+            background-image: url("{{ info_title.img.url }}");
         }
+        {% for offer in offers%}
+
+        {% if forloop.counter == 1 %}
         /*для первого слайда*/
         .slider-sl {
-            background-image: url("../static/img/hellow_block.png");
+            background-image: url("{{ offer.img.url }}");
         }
+        {% else %}
         /*для 2-4 слада*/
-        .slider-for .slick-list .slick-track :nth-child(2) {
-            background-image: url("../static/img/kz.png");
+        .slider-for .slick-list .slick-track :nth-child({{ forloop.counter }}) {
+            background-image: url("{{ offer.img.url }}");
         }
-        .slider-for .slick-list .slick-track :nth-child(3) {
-            background-image: url("../static/img/rf.png");
-        }
-        .slider-for .slick-list .slick-track :nth-child(4) {
-            background-image: url("../static/img/gb.png");
-        }
+        {% endif %}
+        {% endfor %}
     </style>
 </head>
 

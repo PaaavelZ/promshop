@@ -18,22 +18,22 @@ class GetPlaceholder:
     lang: str
     dct_lang = {
         'ru': {
-            'fio': 'ФИО',
-            'phone': 'ТЕЛЕФОН',
-            'email': 'EMAIL',
-            'comment': 'СООБЩЕНИЕ'
+            'fio': '    ФИО',
+            'phone': '    ТЕЛЕФОН',
+            'email': '    EMAIL',
+            'comment': '    СООБЩЕНИЕ'
         },
         'eng': {
-            'fio': 'FULL NAME',
-            'phone': 'PHONE',
-            'email': 'EMAIL',
-            'comment': 'MESSAGE'
+            'fio': '    FULL NAME',
+            'phone': '    PHONE',
+            'email': '    EMAIL',
+            'comment': '    MESSAGE'
         },
         'kz': {
-            'fio': 'ТАӘ',
-            'phone': 'ТЕЛЕФОН',
-            'email': 'EMAIL',
-            'comment': 'ХАБАР'
+            'fio': '    ТАӘ',
+            'phone': '    ТЕЛЕФОН',
+            'email': '    EMAIL',
+            'comment': '    ХАБАР'
         }
     }
 
