@@ -33,10 +33,8 @@
                 <div class="col-lg-4 col-md-12 col-sm-12 col-7 header-logo"> <a href="#main" class="txt_orange">
                     {% if lang == 'ru' %}
                         КОНТУР ПРО
-                    {% elif lang == 'eng' %}
-                        CONTOUR PRO
                     {% else %}
-                        ТҮЙМЕ ПРО
+                        CONTOUR PRO
                     {% endif %}
                 </a></div>
                 <div class="col-lg-8 col-md-12 col-sm-12 txt_white header-menu">
@@ -50,8 +48,8 @@
                         <a href='#contact'>OFFER</a>
                     {% else %} 
                         <a href="#about">БIЗ ТУРАЛЫ</a>
-                        <a href='#contact'>БАЙЛАНЫСТАР</a>
-                        <a href='#contact'>ҚОЛДАНУ</a>
+                        <a href='#contact'>БАЙЛАНЫС</a>
+                        <a href='#contact'>ӨТІНІШ ҚАЛДЫРУ</a>
                     {% endif %}
                     <div class="header-language "><a href="{% url 'main:main_page' %}"></a>
                     </div>
@@ -79,8 +77,8 @@
                                         <a href='#contact'>OFFER</a>
                                     {% else %} 
                                         <a href="#about">БIЗ ТУРАЛЫ</a>
-                                        <a href='#contact'>БАЙЛАНЫСТАР</a>
-                                        <a href='#contact'>ҚОЛДАНУ</a>
+                                        <a href='#contact'>БАЙЛАНЫС</a>
+                                        <a href='#contact'>ӨТІНІШ ҚАЛДЫРУ</a>
                                     {% endif %}
                                     <div class="menu-language">
                                         <div class="header-language "><a href="{% url 'main:main_page' %}"></a>
@@ -107,7 +105,7 @@
                 {% elif lang == 'eng' %}
                     <p><span class="txt_orange">Excellence</span> <br class="mobfix"> in measurement</p>
                 {% else %}
-                    <p><span class="txt_orange">Өлшеудегі</span> <br class="mobfix"> артықшылық</p>
+                    <p><span class="txt_orange">Өлшеудегі</span> <br class="mobfix"> үстемдік</p>
                 {% endif %}
             </div>
             <div class="hellow_block-description txt_white">
@@ -222,13 +220,25 @@
             <div class="container" id="contact">
                 <div class="row">
                     <div class="form-header">
-                        <p>ГОТОВЫ СОТРУДНИЧАТЬ ?</p>
+                        {% if lang == 'ru' %}
+                            <p>ГОТОВЫ СОТРУДНИЧАТЬ ?</p>
+                        {% elif lang == 'eng' %}
+                            <p>ЫНТЫМАҚТАСТЫҚҚА ДАЙЫНСЫЗ БА?</p>
+                        {% else %}
+                            <p>ЫНТЫМАҚТАСТЫҚҚА ДАЙЫНСЫЗ БА?</p>
+                        {% endif %}
                     </div>
                     <div class="form">
                         <form enctype="multipart/form-data" method="post" action="feedback/" class="form-body">
                             {% csrf_token %}
                             <div class="form-block">
-                                <p class="txt_white form-title">ОСТАВЛЯЙТЕ ЗАЯВКУ И МЕНЕДЖЕР С ВАМИ СВЯЖЕТСЯ </p>
+                                {% if lang == 'ru' %}
+                                    <p class="txt_white form-title">ОСТАВЛЯЙТЕ ЗАЯВКУ И МЕНЕДЖЕР С ВАМИ СВЯЖЕТСЯ </p>
+                                {% elif lang == 'eng' %}
+                                    <p class="txt_white form-title">ОСТАВЛЯЙТЕ ЗАЯВКУ И МЕНЕДЖЕР С ВАМИ СВЯЖЕТСЯ </p>
+                                {% else %}
+                                    <p class="txt_white form-title">ӨТІНІШІҢІЗДІ ҚАЛДЫРЫҢЫЗ, МЕНЕДЖЕР СІЗБЕН БАЙЛАНЫСАДЫ</p>
+                                {% endif %}
                                 <div class="form-input">
                                     <div class="form-required">
                                         {{ form.fio }}
@@ -266,17 +276,14 @@
                                 <a href="#main" class="col-lg-3 col-md-3  col-sm-3 txt_orange">КОНТУР ПРО</a>
                                 <a href="" class="col-lg-3 col-md-3  col-sm-3 txt_white">ДОКУМЕНТЫ</a>
                                 <a href="#about" class="col-lg-2 col-md-2  col-sm-2 txt_white">О НАС</a>
-                                <a href="#contact" class="col-lg-3 col-md-3  col-sm-3 txt_white">КОНТАКТЫ</a>
                             {% elif lang == 'eng' %}
                                 <a href="#main" class="col-lg-3 col-md-3  col-sm-3 txt_orange">CONTOUR PRO</a>
                                 <a href="" class="col-lg-3 col-md-3  col-sm-3 txt_white">DOCUMENTS</a>
                                 <a href="#about" class="col-lg-2 col-md-2  col-sm-2 txt_white">ABOUT US</a>
-                                <a href="#contact" class="col-lg-3 col-md-3  col-sm-3 txt_white">CONTACTS</a>
                             {% else %}
-                                <a href="#main" class="col-lg-3 col-md-3  col-sm-3 txt_orange">ТҮЙМЕ ПРО</a>
+                                <a href="#main" class="col-lg-3 col-md-3  col-sm-3 txt_orange">CONTOUR PRO</a>
                                 <a href="" class="col-lg-3 col-md-3  col-sm-3 txt_white">ҚҰЖАТТАР</a>
                                 <a href="#about" class="col-lg-2 col-md-2  col-sm-2 txt_white">БІЗ ТУРАЛЫ</a>
-                                <a href="#contact" class="col-lg-3 col-md-3  col-sm-3 txt_white">БАЙЛАНЫСТАР</a>
                             {% endif %}
                         </div>
                         <div class="col-lg-4 col-md-6  col-sm-6 col-11 footer-left txt_white">

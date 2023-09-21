@@ -30,9 +30,9 @@ class GetPlaceholder:
             'comment': 'MESSAGE'
         },
         'kz': {
-            'fio': 'ТОЛЫҚ АТЫ',
+            'fio': 'ТАӘ',
             'phone': 'ТЕЛЕФОН',
-            'email': 'ЭЛЕКТРОНДЫҚ ПОШТА',
+            'email': 'EMAIL',
             'comment': 'ХАБАР'
         }
     }
