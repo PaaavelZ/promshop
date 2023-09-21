@@ -25,7 +25,7 @@ class Page(View):
 
 class FeedbackView(View):
     def post(self, request, *args, **kwargs):
-        form = MessagesForm(request.POST, request.FILES)
+        form = MessagesForm(request.POST, request.FILES, kwargs)
         if form.is_valid():
             fio = form.cleaned_data.get('fio')
             phone = form.cleaned_data.get('phone')
@@ -42,6 +42,10 @@ class FeedbackView(View):
 
             Mail(feedback)()
 
-        return redirect('main:main_page', lang=kwargs.get('lang'))
+        if kwargs.get('lang') in ('ru', 'eng'):
+            return redirect('main:page_with_lang', lang=kwargs.get('lang'))
+        
+        return redirect('main:main_page')
+
 
         

@@ -53,4 +53,4 @@ class OfferAdmin(admin.ModelAdmin):
 
 @admin.register(EmailEntry)
 class EntryMailAdmin(admin.ModelAdmin):
-    list_display = ('to_email',)
+    list_display = ('feedback',)
