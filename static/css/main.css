@@ -294,6 +294,7 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    border-radius: 20px;
 }
 
 /*.text-block-body-txt::before{
