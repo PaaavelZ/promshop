@@ -28,7 +28,7 @@
 
     <style type="text/css">
         .text-block-img {
-            background-image: url("{{ info_title.img.url }}");
+            background-image: url("{% if info_title.img %} {{ info_title.img.url }} {% endif %}");
         }
         {% for offer in offers%}
 
