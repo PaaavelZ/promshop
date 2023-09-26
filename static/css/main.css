@@ -80,16 +80,12 @@ section {
     justify-content: center;
 }
 
-/*.header-language p {
+.header-language a {
     color: #fff;
     margin-bottom: 0px;
-    font-size: 1rem;
     padding-left: 3px;
-}*/
-.header-languages a{
-    margin-left: 10px;
 }
-
+/*
 .header-languages :nth-child(1) a {
     height: 40px;
     width: 40px;
@@ -116,7 +112,7 @@ section {
     background-size: contain;
     background-position: center;
 }
-
+*/
 
 /*Burger menu*/
 .menu {
@@ -204,7 +200,13 @@ section {
 .slick-current {
     color: #636363;
 }
+.slick-track {
+    display: flex !important;
+}
 
+.slick-slide {
+    height: inherit !important;
+}
 /*Message block*/
 .brdr {
     border: 1px solid black;
@@ -372,15 +374,13 @@ section {
 .form-header {
     position: relative;
     font-size: 3rem;
+    text-align: center;
 }
 
-.form-header p::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 32%;
-    border-top: 1px solid #F7654A;
+.form-header p{
+    display: inline;
+    padding: 0px 10px 5px 10px;
+    border-bottom: 1px solid #F7654A;
 }
 
 .form {
@@ -514,14 +514,6 @@ section {
     .text-block-body-txt {
         text-align: center;
     }
-
-    .slider-for .slick-list .slick-track {
-        display: flex !important;
-    }
-
-    .slider-for .slick-list .slick-track .slick-slide {
-        height: inherit !important;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -573,6 +565,7 @@ section {
     .header-logo {
         font-size: 2rem;
         display: flex;
+        align-items: center;
     }
 
     .slider-heading {
@@ -586,6 +579,8 @@ section {
 
     .hellow_block-description {
         font-size: 2rem;
+        text-align: left;
+        width: 85%;
     }
 
     .mobfix {
@@ -626,7 +621,12 @@ section {
     .text-block-subtitle_bordered {
         border: none;
     }
-
+    .form-header {
+        text-align: left;
+    }
+    .form-header p {
+        padding: 0px 0px 5px 0px;
+    }
     .form-input {
         display: flex;
         flex-direction: column;
@@ -664,6 +664,9 @@ section {
     }
 
     .header-menu {
+        display: none;
+    }
+    .header-languages{
         display: none;
     }
 
@@ -749,18 +752,12 @@ section {
     }
     .menu-language .header-language{
         margin-left: 20px;
+        font-size: 2rem;
     }
 
-    .menu-language a {
-        height: 15px;
-        width: 35px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
 
-    }
 
-    .menu-language :nth-child(1) a {
+    /*.menu-language :nth-child(1) a {
         background-image: url("../img/kz.png");
     }
 
@@ -770,5 +767,5 @@ section {
 
     .menu-language :nth-child(3) a {
         background-image: url("../img/gb.png");
-    }
+    }*/
 }

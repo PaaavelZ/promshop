@@ -30,35 +30,73 @@
         .text-block-img {
             background-image: url("{% if info_title.img %} {{ info_title.img.url }} {% endif %}");
         }
-        {% for offer in offers%}
 
-        {% if forloop.counter == 1 %}
+            {
+            % for offer in offers%
+        }
+
+            {
+            % if forloop.counter==1 %
+        }
+
         /*для первого слайда*/
         .slider-sl {
             background-image: url("{{ offer.img.url }}");
         }
-        {% else %}
+
+            {
+            % else %
+        }
+
         /*для 2-4 слада*/
-        .slider-for .slick-list .slick-track :nth-child({{ forloop.counter }}) {
+        .slider-for .slick-list .slick-track :nth-child({
+                {
+                forloop.counter
+            }
+
+        }) {
             background-image: url("{{ offer.img.url }}");
         }
+
+            {
+            % endif %
+        }
+
+            {
+            % endfor %
+        }
+    </style>
+    <style>
+        {% if lang == 'kz' %}
+        .form-header p{
+        display: block;
+        position: relative;
+        border: none;
+    }
+        .form-header p::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 55%;
+        border-bottom: 1px solid #F7654A;
+    }
         {% endif %}
-        {% endfor %}
+
     </style>
 </head>
 
 <body>
     <div class="header fixed-top">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12 col-5 header-logo"> <a href="#main" class="txt_orange">
+            <div class="row justify-content-between">
+                <div class="col-lg-2 col-md-12 col-sm-12 col-5 header-logo"> <a href="#main" class="txt_orange">
                         {% if lang == 'ru' %}
                         КОНТУР ПРО
                         {% else %}
                         CONTOUR PRO
                         {% endif %}
                     </a></div>
-                <div class="col-lg-8 col-md-12 col-sm-12 txt_white header-menu">
+                <div class="col-lg-6 col-md-8 col-sm-8 txt_white header-menu">
                     {% if lang == 'ru' %}
                     <a href="#about">О НАС</a>
                     <a href='#contact'>КОНТАКТЫ</a>
@@ -72,22 +110,22 @@
                     <a href='#contact'>БАЙЛАНЫС</a>
                     <a href='#contact'>ӨТІНІШ ҚАЛДЫРУ</a>
                     {% endif %}
-                    <div class="header-languages">
-                        <div class="header-language "><a href="{% url 'main:main_page' %}"></a>
-                        </div>
-                        <div class="header-language "><a href="{% url 'main:page_with_lang' 'ru' %}"></a>
-                        </div>
-                        <div class="header-language "><a href="{% url 'main:page_with_lang' 'eng' %}"></a>
-                        </div>
+                </div>
+                <div class="header-languages col-lg-2 col-md-3 col-sm-3">
+                    <div class="header-language "><a href="{% url 'main:main_page' %}">KZ</a>
+                    </div>
+                    <div class="header-language "><a href="{% url 'main:page_with_lang' 'ru' %}">RU</a>
+                    </div>
+                    <div class="header-language "><a href="{% url 'main:page_with_lang' 'eng' %}">EN</a>
                     </div>
                 </div>
                 <div class='menu col-7'>
                     <div class="menu-language">
-                        <div class="header-language "><a href="{% url 'main:main_page' %}"></a>
+                        <div class="header-language "><a href="{% url 'main:main_page' %}">KZ</a>
                         </div>
-                        <div class="header-language "><a href="{% url 'main:page_with_lang' 'ru' %}"></a>
+                        <div class="header-language "><a href="{% url 'main:page_with_lang' 'ru' %}">RU</a>
                         </div>
-                        <div class="header-language "><a href="{% url 'main:page_with_lang' 'eng' %}"></a>
+                        <div class="header-language "><a href="{% url 'main:page_with_lang' 'eng' %}">EN</a>
                         </div>
                     </div>
                     <div class="menu-box">
@@ -192,7 +230,7 @@
                                 <p class="text-block-subtitle_bordered">{{ info.name }}</p>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-12 text-block-body">
                             <div class="col-lg-12 text-block-body-txt">
                                 {% for mini_info in info.childcategoryinfos.all%}
@@ -263,9 +301,11 @@
                                 {% if lang == 'ru' %}
                                 <p class="txt_white form-title">ОСТАВЛЯЙТЕ ЗАЯВКУ И МЕНЕДЖЕР С ВАМИ СВЯЖЕТСЯ </p>
                                 {% elif lang == 'eng' %}
-                                <p class="txt_white form-title">AFTER YOU MAKE THE ORDER, OUR MANAGER WILL CONTACT YOU </p>
+                                <p class="txt_white form-title">AFTER YOU MAKE THE ORDER, OUR MANAGER WILL CONTACT YOU
+                                </p>
                                 {% else %}
-                                <p class="txt_white form-title">ӨТІНІШІҢІЗДІ ҚАЛДЫРЫҢЫЗ, МЕНЕДЖЕР СІЗБЕН БАЙЛАНЫСАДЫ </p>
+                                <p class="txt_white form-title">ӨТІНІШІҢІЗДІ ҚАЛДЫРЫҢЫЗ, МЕНЕДЖЕР СІЗБЕН БАЙЛАНЫСАДЫ
+                                </p>
                                 {% endif %}
                                 <div class="form-input">
                                     <div class="form-required">
