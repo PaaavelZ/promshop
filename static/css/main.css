@@ -203,10 +203,12 @@ section {
 
 .slider-for .slick-track {
     display: flex !important;
+    height: 100%;
 }
 
 .slider-for .slick-track .slick-slide {
     height: inherit !important;
+    padding: 10px;
 }
 /*Message block*/
 .brdr {
