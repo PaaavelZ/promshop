@@ -21,7 +21,7 @@ $('.slider-for').slick({
   arrows: false,
   infinite: false
 });
-console.log("Te")
+
 $('.slider-nav').slick({
   centerMode: true,
   slidesToShow: 4,

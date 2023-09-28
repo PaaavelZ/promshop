@@ -200,13 +200,14 @@ section {
 .slick-current {
     color: #636363;
 }
+/*
 .slick-track {
     display: flex !important;
 }
 
 .slick-slide {
     height: inherit !important;
-}
+}*/
 /*Message block*/
 .brdr {
     border: 1px solid black;
