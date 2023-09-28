@@ -203,7 +203,6 @@ section {
 
 .slider-for .slick-track {
     display: flex !important;
-    height: 100%;
 }
 
 .slider-for .slick-track .slick-slide {
