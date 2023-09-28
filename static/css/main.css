@@ -207,7 +207,7 @@ section {
 }
 
 .slider-for .slick-track .slick-slide {
-    height: inherit !important;
+    height: -webkit-fill-available !important;
     padding: 10px;
     min-height: 100%;
 }
