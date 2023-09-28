@@ -208,14 +208,19 @@ section {
 }
 
 .slider-for .slick-track .slick-slide {
-    height: 404px;
+    height: 432px;
     padding: 10px;
+}
+@media screen and (max-width: 1230px) {
+    .slider-for .slick-track .slick-slide {
+        height: 404px;
+    }
 }
 @media screen and (max-width: 770px) {
     .slider-for .slick-track .slick-slide {
         height: auto;
     }
-    }
+}
 /*Message block*/
 .brdr {
     border: 1px solid black;
