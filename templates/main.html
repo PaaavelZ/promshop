@@ -32,14 +32,14 @@
         }
 
         {% for offer in offers%}
-        {% if forloop.counter==1 %}
+            {% if forloop.counter == 1 %}
 
         /*для первого слайда*/
             .slider-sl {
                 background-image: url("{{ offer.img.url }}");
             }
 
-        {% else %}
+            {% else %}
 
         /*для 2-4 слада*/
             .slider-for .slick-list .slick-track :nth-child({{forloop.counter}}) {
@@ -47,7 +47,7 @@
             }
 
             {% endif %}
-            {% endfor %}
+        {% endfor %}
     </style>
     <style>
         {% if lang == 'kz' %}
