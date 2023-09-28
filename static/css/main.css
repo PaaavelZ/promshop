@@ -37,7 +37,7 @@ section {
 }
 
 .txt_white {
-    color: #fff;
+    color: #fff !important;
 }
 
 .txt_black {
@@ -200,14 +200,14 @@ section {
 .slick-current {
     color: #636363;
 }
-/*
-.slick-track {
+
+.slider-for .slick-track {
     display: flex !important;
 }
 
-.slick-slide {
+.slider-for .slick-track .slick-slide {
     height: inherit !important;
-}*/
+}
 /*Message block*/
 .brdr {
     border: 1px solid black;
