@@ -325,15 +325,15 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-11 footer-right">
                             {% if lang == 'ru' %}
                             <a href="#main" class="col-lg-4 col-md-4  col-sm-4 txt_orange">КОНТУР ПРО</a>
-                            <a href="" class="col-lg-4 col-md-4  col-sm-4 txt_white">ДОКУМЕНТЫ</a>
+                            <a href="{% static 'doc/ContourPRO.pdf' %}" class="col-lg-4 col-md-4  col-sm-4 txt_white">ДОКУМЕНТЫ</a>
                             <a href="#about" class="col-lg-3 col-md-3  col-sm-3 txt_white">О НАС</a>
                             {% elif lang == 'eng' %}
                             <a href="#main" class="col-lg-4 col-md-4  col-sm-4 txt_orange">CONTOUR PRO</a>
-                            <a href="" class="col-lg-4 col-md-4  col-sm-4 txt_white">DOCUMENTS</a>
+                            <a href="{% static 'doc/ContourPRO_ENG.pdf' %}" class="col-lg-4 col-md-4  col-sm-4 txt_white">DOCUMENTS</a>
                             <a href="#about" class="col-lg-3 col-md-3  col-sm-3 txt_white">ABOUT US</a>
                             {% else %}
                             <a href="#main" class="col-lg-4 col-md-4  col-sm-4 txt_orange">CONTOUR PRO</a>
-                            <a href="" class="col-lg-4 col-md-4  col-sm-4 txt_white">ҚҰЖАТТАР</a>
+                            <a href="{% static 'doc/ContourPRO_ENG.pdf' %}" class="col-lg-4 col-md-4  col-sm-4 txt_white">ҚҰЖАТТАР</a>
                             <a href="#about" class="col-lg-3 col-md-3  col-sm-3 txt_white">БІЗ ТУРАЛЫ</a>
                             {% endif %}
                         </div>
