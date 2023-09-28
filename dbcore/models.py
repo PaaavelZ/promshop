@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from ckeditor.fields import RichTextField
 
 
 class Language(models.Model):
@@ -65,7 +64,7 @@ class ChildOffer(models.Model):
                             blank=False, 
                             null=False,
                             verbose_name=_('Заголовок'),)
-    text = RichTextField(verbose_name=_('Текст заголовка'),)
+    text = models.TextField(verbose_name=_('Текст заголовка'),)
     img = models.ImageField(verbose_name='Картинка позади текста')
     offer = models.ForeignKey('Offer',
                             related_name='childoffers',
@@ -152,7 +151,7 @@ class Feedback(models.Model):
                               blank=False, 
                               null=False,
                               verbose_name=_('Почта'),)
-    text = RichTextField()
+    text = models.TextField(verbose_name=_('Сообщение'),)
 
     class Meta:
         verbose_name = '4. Клиентская заявка'
@@ -170,8 +169,8 @@ class EmailEntry(models.Model):
     subject = models.CharField(max_length=255, 
                                blank=False, 
                                null=False,)
-    text = models.TextField()
-    is_sent = models.BooleanField(default=False)
+    text = models.TextField(verbose_name=_('Сообщение'),)
+    is_sent = models.BooleanField(default=False, verbose_name=_('Отправлено'),)
 
     def mark_as_sent(self):
         self.is_sent = True
