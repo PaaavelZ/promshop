@@ -209,7 +209,6 @@ section {
 .slider-for .slick-track .slick-slide {
     height: -webkit-fill-available !important;
     padding: 10px;
-    min-height: 100%;
 }
 /*Message block*/
 .brdr {
