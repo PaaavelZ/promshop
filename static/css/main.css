@@ -158,6 +158,7 @@ section {
     margin-top: 50px;
     font-family: 'Inter', sans-serif !important;
     text-transform: uppercase;
+    height: auto;
 }
 
 .slider-slide,
@@ -207,9 +208,8 @@ section {
 }
 
 .slider-for .slick-track .slick-slide {
-    height: inherit !important;
+    height: -webkit-fill-available !important;
     padding: 10px;
-    min-height: 100%;
 }
 /*Message block*/
 .brdr {
@@ -372,6 +372,7 @@ section {
 
 .slick-list {
     padding: 0px !important;
+    height: 100%;
 }
 
 /*Form*/
