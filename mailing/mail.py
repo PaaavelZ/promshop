@@ -25,7 +25,7 @@ class Mail:
         e = MIMEMultipart()
         e['From'] = EMAIL_HOST_USER
         e['To'] = ', '.join(RECIPIENTS_EMAIL)
-        e['Subject'] = 'Новое сообщение'
+        e['Subject'] = 'Заявка с сайта КОНТУР ПРО'
 
         self.text = f'ФИО: {self.feedback.fio} \nТЕЛЕФОН: {self.feedback.phone} \nПОЧТА: {self.feedback.email} \nСООБЩЕНИЕ: {self.feedback.text}'
         e.attach(MIMEText(self.text, 'plain'))
