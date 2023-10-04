@@ -280,12 +280,16 @@
                         {% endif %}
                     </div>
                     <div class="form">
-                        <form enctype="multipart/form-data" method="post" action="{% url 'main:feedback' lang %}"
+                        <form enctype="multipart/form-data" method="post" action="{% url 'main:feedback' lang %} "
                             class="form-body">
                             {% csrf_token %}
                             <div class="form-block">
                                 {% if lang == 'ru' %}
-                                <p class="txt_white form-title">ОСТАВЛЯЙТЕ ЗАЯВКУ И МЕНЕДЖЕР С ВАМИ СВЯЖЕТСЯ </p>
+                                    {% if invalid_recaptcha %}
+                                        <p class="txt_white form-title">ЗАПОЛНИТЕ</p>
+                                    {% else %}
+                                        <p class="txt_white form-title">ОСТАВЛЯЙТЕ ЗАЯВКУ И МЕНЕДЖЕР С ВАМИ СВЯЖЕТСЯ </p>
+                                    {% endif %}
                                 {% elif lang == 'eng' %}
                                 <p class="txt_white form-title">AFTER YOU MAKE THE ORDER, OUR MANAGER WILL CONTACT YOU
                                 </p>
@@ -303,16 +307,24 @@
                                         {{ form.comment }}
                                     </div>
                                 </div>
-                                {% if lang == 'ru' %}
-                                <input type="submit" value="ОТПРАВИТЬ" name="submit" class="input-field form_send"
-                                    placeholder="ОТПРАВИТЬ" required="" id="id_fio">
-                                {% elif lang == 'eng' %}
-                                <input type="submit" value="SEND" name="submit" class="input-field form_send"
-                                    placeholder="SEND" required="" id="id_fio">
-                                {% else %}
-                                <input type="submit" value="ЖІБЕРУ" name="submit" class="input-field form_send"
-                                    placeholder="ЖІБЕРУ" required="" id="id_fio">
-                                {% endif %}
+                                <script type="text/javascript" src='{{ captcha_link }}'></script>
+                                <div class="col-lg-12 captcha">
+                                    <div 
+                                    class="form-group g-recaptcha captcha_block col-lg-6 col-md-6 col-sm-12 col-12"  
+                                    id="recaptchaContainer" 
+                                    style="transform:scale(0.8);transform-origin:0 0" 
+                                    data-sitekey="{{ data_sitekey }}"></div>
+                                    {% if lang == 'ru' %}
+                                    <input type="submit" value="ОТПРАВИТЬ" name="submit" class="input-field form_send col-lg-6 col-md-6 col-sm-12 col-12"
+                                        placeholder="ОТПРАВИТЬ" required="" id="id_fio">
+                                    {% elif lang == 'eng' %}
+                                    <input type="submit" value="SEND" name="submit" class="input-field form_send col-lg-6 col-md-6 col-sm-12 col-12"
+                                        placeholder="SEND" required="" id="id_fio">
+                                    {% else %}
+                                    <input type="submit" value="ЖІБЕРУ" name="submit" class="input-field form_send col-lg-6 col-md-6 col-sm-12 col-12"
+                                        placeholder="ЖІБЕРУ" required="" id="id_fio">
+                                    {% endif %}
+                                </div>
                             </div>
                         </form>
                     </div>

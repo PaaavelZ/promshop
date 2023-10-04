@@ -1,3 +1,9 @@
+let slug = url => new URL(url).pathname.match(/[^\/]+/g)
+let invalid_captcha = slug(window.location.href).slice(-1)[0]
+if (invalid_captcha == "invalid") {
+    window.location.replace("#contact");
+}
+
 /*Navigation drop*/
 $('ul.nav li.dropdown').hover(function() {
   $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
