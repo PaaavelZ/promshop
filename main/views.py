@@ -54,6 +54,7 @@ class Page(View):
         context = GetContext(lang=kwargs.get('lang'))()
         context['form'] = MessagesForm(lang=kwargs.get('lang'))
         context['captcha_link'] = 'https://www.google.com/recaptcha/api.js?explicit&hl=en'
+        
         return render(request, 'main.html', context)
     
 
@@ -61,6 +62,7 @@ class InvalidCaptchaToFeedback(View):
     def get(self, request, *args, **kwargs):
         context = GetContext(lang=kwargs.get('lang'))()
         context['form'] = MessagesForm(lang=kwargs.get('lang'))
+        context['captcha_link'] = 'https://www.google.com/recaptcha/api.js?explicit&hl=en'
         context['invalid_recaptcha'] = True
 
         return render(request, 'main.html', context)
