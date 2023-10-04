@@ -414,6 +414,7 @@ section {
 }
 
 .form-body {
+    width: 75%;
     display: flex;
     justify-content: center;
     align-self: center;
@@ -422,6 +423,7 @@ section {
 }
 
 .form-block {
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 25px;
@@ -465,10 +467,20 @@ section {
 }
 
 .form_send {
-    margin-top: 25px;
     height: 50px;
     width: 25%;
-    align-self: end;
+}
+
+.captcha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.captcha_block {
+    height: 70px !important;
 }
 
 /*Footer*/

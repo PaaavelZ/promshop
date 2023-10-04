@@ -138,7 +138,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-RECIPIENTS_EMAIL = ['enamsaraev@bk.ru', 'andr.gosh@yandex.ru', 'contourprokz@gmail.com', 'bukkd@yandex.ru', 'tech.contourprokz@gmail.com',]
+RECIPIENTS_EMAIL = ['enamsaraev@bk.ru', 'andr.gosh@yandex.ru',]
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
@@ -147,3 +147,6 @@ EMAIL_HOST_PASSWORD = 'jxslbgnlspwpbaaw'
 
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LeVFXEoAAAAAFFkwpbcMCv9gEzyRGWcdzNaGcdc'
+DATA_SITEKEY = '6LeVFXEoAAAAALv70uzDRKY9WiG4RC3jUChYc5bH'

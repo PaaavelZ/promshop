@@ -22,6 +22,7 @@ class Mail:
         self._mark_as_sent()
 
     def _prepare_sms(self):
+        print(RECIPIENTS_EMAIL)
         e = MIMEMultipart()
         e['From'] = EMAIL_HOST_USER
         e['To'] = ', '.join(RECIPIENTS_EMAIL)

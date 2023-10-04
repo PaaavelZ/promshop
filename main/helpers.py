@@ -1,6 +1,6 @@
 from  dataclasses import dataclass
 from typing import Any
-
+from django.conf import settings
 from dbcore.models import MainPage, Offer, ChildOffer, Info, CategoryInfo
 
 
@@ -19,6 +19,7 @@ class GetContext:
             'offers': self._get_offers(),
             'info_title': self._get_info_title(),
             'infos_no_slider': self._get_infos_with_no_slider(),
+            'data_sitekey': settings.DATA_SITEKEY,
         }
 
     def _get_main_page(self):
