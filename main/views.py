@@ -45,7 +45,8 @@ class MainPage(View):
     def get(self, request, *args, **kwargs):
         context = GetContext(lang='kz')()
         context['form'] = MessagesForm(lang='kz')
-            
+        context['captcha_link'] = 'https://www.google.com/recaptcha/api.js?explicit&hl=en'
+        
         return render(request, 'main.html', context)
     
 
