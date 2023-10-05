@@ -286,16 +286,24 @@
                             <div class="form-block">
                                 {% if lang == 'ru' %}
                                     {% if invalid_recaptcha %}
-                                        <p class="txt_white form-title">ЗАПОЛНИТЕ</p>
+                                        <p class="txt_white form-title">ЗАПОЛНИТЕ ПОЛЕ CAPTCHA</p>
                                     {% else %}
                                         <p class="txt_white form-title">ОСТАВЛЯЙТЕ ЗАЯВКУ И МЕНЕДЖЕР С ВАМИ СВЯЖЕТСЯ </p>
                                     {% endif %}
                                 {% elif lang == 'eng' %}
-                                <p class="txt_white form-title">AFTER YOU MAKE THE ORDER, OUR MANAGER WILL CONTACT YOU
-                                </p>
+                                    {% if invalid_recaptcha %}
+                                        <p class="txt_white form-title">FILL IN THE CAPTCHA FIELD</p>
+                                    {% else %}
+                                    <p class="txt_white form-title">AFTER YOU MAKE THE ORDER, OUR MANAGER WILL CONTACT YOU
+                                    </p>
+                                    {% endif %}
                                 {% else %}
-                                <p class="txt_white form-title">ӨТІНІШІҢІЗДІ ҚАЛДЫРЫҢЫЗ, МЕНЕДЖЕР СІЗБЕН БАЙЛАНЫСАДЫ
-                                </p>
+                                    {% if invalid_recaptcha %}
+                                        <p class="txt_white form-title">CAPTCHA ӨРІСІН ТОЛтырыңыз</p>
+                                    {% else %}
+                                    <p class="txt_white form-title">ӨТІНІШІҢІЗДІ ҚАЛДЫРЫҢЫЗ, МЕНЕДЖЕР СІЗБЕН БАЙЛАНЫСАДЫ
+                                    </p>
+                                    {% endif %}
                                 {% endif %}
                                 <div class="form-input">
                                     <div class="form-required">

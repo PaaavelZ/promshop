@@ -300,6 +300,7 @@ section {
     margin-bottom: 0px;
 }
 .text-block-img-box {
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
