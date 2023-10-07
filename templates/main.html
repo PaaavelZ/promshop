@@ -53,19 +53,28 @@
         {% if lang == 'kz' %}
 
         @media screen and (max-width: 491px) {
-        .form-header p{
-        display: block;
-        position: relative;
-        border: none;
-    }
-        .form-header p::before{
-        content: "";
-        position: absolute;
-        bottom: 0;
-        width: 55%;
-        border-bottom: 1px solid #F7654A;
-    }
-    }
+            .form-header p{
+                display: block;
+                position: relative;
+                border: none;
+            }
+            .form-header p::before{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                width: 55%;
+                border-bottom: 1px solid #F7654A;
+            }
+        }
+
+        {% elif lang == 'eng' %}
+
+            @media screen and (max-width: 491px) {
+                .slider-nav-block p {
+                    padding: 15px;
+                }
+            }
+
         {% endif %}
 
     </style>
